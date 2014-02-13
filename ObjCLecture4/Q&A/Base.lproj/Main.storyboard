@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8fs-6S-xYK"/>
+                        <viewControllerLayoutGuide type="bottom" id="kvO-vW-UAe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jmR-Sf-MWC">
+                                <rect key="frame" x="83" y="518" width="154" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Generate New MadLib">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="genMadLib:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="g8T-uh-EuK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kDz-TP-gz9">
+                                <rect key="frame" x="92" y="480" width="136" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Generate New Burn">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="genBurn:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="DcZ-Jw-xSK"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1O-Ei-FcC">
+                                <rect key="frame" x="40" y="27" width="240" height="405"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="G1O-Ei-FcC" secondAttribute="trailing" constant="40" id="0HO-ep-1YF"/>
+                            <constraint firstAttribute="trailing" secondItem="jmR-Sf-MWC" secondAttribute="trailing" constant="83" id="9hf-09-FY7"/>
+                            <constraint firstItem="kvO-vW-UAe" firstAttribute="top" secondItem="jmR-Sf-MWC" secondAttribute="bottom" constant="20" id="CRf-hp-zt7"/>
+                            <constraint firstItem="kDz-TP-gz9" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="92" id="D5B-Hr-COy"/>
+                            <constraint firstItem="G1O-Ei-FcC" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="40" id="M6d-7N-BMH"/>
+                            <constraint firstItem="G1O-Ei-FcC" firstAttribute="top" secondItem="8fs-6S-xYK" secondAttribute="bottom" constant="7" id="PAL-Dk-xpP"/>
+                            <constraint firstItem="jmR-Sf-MWC" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="83" id="l4l-KN-mSX"/>
+                            <constraint firstAttribute="trailing" secondItem="kDz-TP-gz9" secondAttribute="trailing" constant="92" id="lbF-Hb-X3H"/>
+                            <constraint firstItem="jmR-Sf-MWC" firstAttribute="top" secondItem="kDz-TP-gz9" secondAttribute="bottom" constant="8" id="mnJ-Tf-509"/>
+                            <constraint firstAttribute="centerY" secondItem="G1O-Ei-FcC" secondAttribute="centerY" constant="54.5" id="zlo-pm-f0R"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="burnButton" destination="kDz-TP-gz9" id="qQa-D7-O99"/>
+                        <outlet property="madLibButton" destination="jmR-Sf-MWC" id="OK7-ZM-E3O"/>
+                        <outlet property="templateLabel" destination="G1O-Ei-FcC" id="Nlv-Fy-QZL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
