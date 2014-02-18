@@ -14,5 +14,12 @@
 
 @property(nonatomic, weak) IBOutlet MKMapView* mapView;
 @property(nonatomic, strong) CLLocationManager* locationManager;
+@property(nonatomic, weak) IBOutlet UISegmentedControl* segControl;
+@property(nonatomic, weak) IBOutlet UIButton* markIt;
+@property(nonatomic, weak) IBOutlet UILabel* addy;
+@property(nonatomic, strong) CLGeocoder* geocoder;
+
+-(IBAction)segmentSelected:(id)sender;
+-(IBAction)markLocation:(id)sender;
 
 @end

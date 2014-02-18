@@ -9,7 +9,8 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-
+@property(nonatomic, strong) CLPlacemark* placemark;
+@property(nonatomic, strong) CLLocation* currLocation;
 @end
 
 @implementation ViewController
@@ -17,6 +18,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.geocoder = [[CLGeocoder alloc]init];
 	self.locationManager = [[CLLocationManager alloc]init];
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
     self.locationManager.delegate = self;
@@ -36,8 +38,41 @@
 
 //CLLocationmanagerDelegate
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
-    CLLocation* location = [locations lastObject];
-    NSLog(@"Location: %@", location);
+    if(_currLocation == nil){
+        NSLog(@"Null locaton. setting.");
+    }
+    if([_currLocation getDistanceFrom:([locations lastObject])]<10){
+        NSLog(@"currlocation is != location lastobject");
+        _currLocation = [locations lastObject];
+        [self reverseGeocodeLocation:_currLocation];
+        [_addy setText:((NSString*)(self.placemark))];
+    }else{
+        NSLog(@"Not updating");
+    }
+}
+
+-(IBAction)segmentSelected:(id)sender{
+    NSInteger selected = [_segControl selectedSegmentIndex];
+    if(selected == 0){
+        self.mapView.mapType = MKMapTypeStandard;
+    }
+    if(selected == 1){
+        self.mapView.mapType = MKMapTypeSatellite;
+    }
+    if(selected == 2){
+        self.mapView.mapType = MKMapTypeHybrid;
+    }
+}
+
+-(IBAction)markLocation:(id)sender{
+    NSLog(@"mark it button");
+}
+
+-(void)reverseGeocodeLocation:(CLLocation*)location{
+    [self.geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+        self.placemark = [placemarks objectAtIndex:0];
+        NSLog(@"RGL: %@", self.placemark);
+    }];
 }
 
 @end

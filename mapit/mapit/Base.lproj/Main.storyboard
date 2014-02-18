@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -16,24 +16,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fcq-PG-pIL">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fcq-PG-pIL">
+                                <rect key="frame" x="0.0" y="62" width="320" height="419"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="DDY-98-9Zx"/>
                                 </connections>
                             </mapView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9WL-CT-dYv">
+                                <rect key="frame" x="64" y="26" width="192" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Map"/>
+                                    <segment title="Satellite"/>
+                                    <segment title="Hybrid"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentSelected:" destination="vXZ-lx-hvc" eventType="valueChanged" id="942-gm-m7T"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3DQ-Ks-LmQ">
+                                <rect key="frame" x="131" y="518" width="59" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Mark It!">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="markLocation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="7hX-Ie-rHL"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Addy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idr-UC-rZl">
+                                <rect key="frame" x="20" y="489" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="HNr-e2-OXm" firstAttribute="top" secondItem="fcq-PG-pIL" secondAttribute="bottom" id="GSr-pT-3S1"/>
-                            <constraint firstAttribute="trailing" secondItem="fcq-PG-pIL" secondAttribute="trailing" id="izA-jQ-zZb"/>
-                            <constraint firstItem="fcq-PG-pIL" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="r9o-n6-OPU"/>
-                            <constraint firstItem="koX-qv-hKu" firstAttribute="top" secondItem="fcq-PG-pIL" secondAttribute="bottom" constant="-548" id="zAF-Bf-n9X"/>
+                            <constraint firstAttribute="trailing" secondItem="fcq-PG-pIL" secondAttribute="trailing" id="1g4-hH-IsC"/>
+                            <constraint firstItem="9WL-CT-dYv" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="64" id="2mU-7L-wjt"/>
+                            <constraint firstItem="9WL-CT-dYv" firstAttribute="top" secondItem="koX-qv-hKu" secondAttribute="bottom" constant="6" id="8bf-jo-FSm"/>
+                            <constraint firstItem="3DQ-Ks-LmQ" firstAttribute="top" secondItem="idr-UC-rZl" secondAttribute="bottom" constant="8" id="OPe-JV-5eC"/>
+                            <constraint firstAttribute="trailing" secondItem="idr-UC-rZl" secondAttribute="trailing" constant="20" id="OrB-uV-CjA"/>
+                            <constraint firstItem="idr-UC-rZl" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="QFX-DR-g0E"/>
+                            <constraint firstItem="idr-UC-rZl" firstAttribute="top" secondItem="fcq-PG-pIL" secondAttribute="bottom" constant="8" id="TLk-bV-ekW"/>
+                            <constraint firstAttribute="trailing" secondItem="3DQ-Ks-LmQ" secondAttribute="trailing" constant="130" id="dKu-u0-ozj"/>
+                            <constraint firstItem="fcq-PG-pIL" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="pcl-rM-Ojs"/>
+                            <constraint firstAttribute="trailing" secondItem="9WL-CT-dYv" secondAttribute="trailing" constant="64" id="uxu-HJ-yvG"/>
+                            <constraint firstItem="3DQ-Ks-LmQ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="131" id="vgq-Re-9jL"/>
+                            <constraint firstItem="fcq-PG-pIL" firstAttribute="top" secondItem="9WL-CT-dYv" secondAttribute="bottom" constant="8" id="vpG-Cf-c8h"/>
+                            <constraint firstItem="HNr-e2-OXm" firstAttribute="top" secondItem="3DQ-Ks-LmQ" secondAttribute="bottom" constant="20" id="xDm-MH-9y1"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addy" destination="idr-UC-rZl" id="6Rs-dI-Bbb"/>
                         <outlet property="mapView" destination="fcq-PG-pIL" id="Ssj-px-9Uy"/>
+                        <outlet property="markIt" destination="3DQ-Ks-LmQ" id="aLm-nM-cTo"/>
+                        <outlet property="segControl" destination="9WL-CT-dYv" id="eBJ-cz-QGD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
