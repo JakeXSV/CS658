@@ -40,12 +40,15 @@
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     if(_currLocation == nil){
         NSLog(@"Null locaton. setting.");
+        _currLocation = [locations lastObject];
     }
-    if([_currLocation getDistanceFrom:([locations lastObject])]<10){
+    int maxDiff = 3;
+    NSLog(@"comparison : %5f",[_currLocation distanceFromLocation:([locations lastObject])]);
+    if([_currLocation distanceFromLocation:([locations lastObject])] > maxDiff){
         NSLog(@"currlocation is != location lastobject");
         _currLocation = [locations lastObject];
         [self reverseGeocodeLocation:_currLocation];
-        [_addy setText:((NSString*)(self.placemark))];
+        [_addy setText:([self.placemark.addressDictionary valueForKey:@"Street"])];
     }else{
         NSLog(@"Not updating");
     }
