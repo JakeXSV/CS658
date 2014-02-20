@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14F7D40918B6B13B00C625D1 /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F7D40818B6B13B00C625D1 /* MapAnnotation.m */; };
 		230A495418B018C8002799CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 230A495318B018C8002799CE /* Foundation.framework */; };
 		230A495618B018C8002799CE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 230A495518B018C8002799CE /* CoreGraphics.framework */; };
 		230A495818B018C8002799CE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 230A495718B018C8002799CE /* UIKit.framework */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14F7D40718B6B13B00C625D1 /* MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotation.h; sourceTree = "<group>"; };
+		14F7D40818B6B13B00C625D1 /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
 		230A495018B018C8002799CE /* mapit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mapit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		230A495318B018C8002799CE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		230A495518B018C8002799CE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -126,6 +129,8 @@
 				230A496818B018C8002799CE /* ViewController.h */,
 				230A496918B018C8002799CE /* ViewController.m */,
 				230A496B18B018C8002799CE /* Images.xcassets */,
+				14F7D40718B6B13B00C625D1 /* MapAnnotation.h */,
+				14F7D40818B6B13B00C625D1 /* MapAnnotation.m */,
 				230A495A18B018C8002799CE /* Supporting Files */,
 			);
 			path = mapit;
@@ -260,6 +265,7 @@
 				230A496A18B018C8002799CE /* ViewController.m in Sources */,
 				230A496418B018C8002799CE /* AppDelegate.m in Sources */,
 				230A496018B018C8002799CE /* main.m in Sources */,
+				14F7D40918B6B13B00C625D1 /* MapAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +474,7 @@
 				230A498418B018C8002799CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		230A498518B018C8002799CE /* Build configuration list for PBXNativeTarget "mapitTests" */ = {
 			isa = XCConfigurationList;
@@ -476,6 +483,7 @@
 				230A498718B018C8002799CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

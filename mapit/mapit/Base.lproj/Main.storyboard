@@ -16,15 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fcq-PG-pIL">
-                                <rect key="frame" x="0.0" y="62" width="320" height="419"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fcq-PG-pIL">
+                                <rect key="frame" x="0.0" y="56" width="320" height="425"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="DDY-98-9Zx"/>
                                 </connections>
                             </mapView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9WL-CT-dYv">
-                                <rect key="frame" x="20" y="26" width="280" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9WL-CT-dYv">
+                                <rect key="frame" x="20" y="20" width="280" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Map"/>
@@ -38,6 +38,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3DQ-Ks-LmQ">
                                 <rect key="frame" x="131" y="518" width="59" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="59" id="nrI-zC-9Wf"/>
+                                </constraints>
                                 <state key="normal" title="Mark It!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -45,9 +48,12 @@
                                     <action selector="markLocation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="7hX-Ie-rHL"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Addy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idr-UC-rZl">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idr-UC-rZl">
                                 <rect key="frame" x="20" y="489" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="4FI-mM-DA5"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -55,19 +61,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="fcq-PG-pIL" secondAttribute="trailing" id="1g4-hH-IsC"/>
-                            <constraint firstItem="9WL-CT-dYv" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="64" id="2mU-7L-wjt"/>
-                            <constraint firstItem="9WL-CT-dYv" firstAttribute="top" secondItem="koX-qv-hKu" secondAttribute="bottom" constant="6" id="8bf-jo-FSm"/>
-                            <constraint firstItem="3DQ-Ks-LmQ" firstAttribute="top" secondItem="idr-UC-rZl" secondAttribute="bottom" constant="8" id="OPe-JV-5eC"/>
-                            <constraint firstAttribute="trailing" secondItem="idr-UC-rZl" secondAttribute="trailing" constant="20" id="OrB-uV-CjA"/>
-                            <constraint firstItem="idr-UC-rZl" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="QFX-DR-g0E"/>
-                            <constraint firstItem="idr-UC-rZl" firstAttribute="top" secondItem="fcq-PG-pIL" secondAttribute="bottom" constant="8" id="TLk-bV-ekW"/>
-                            <constraint firstAttribute="trailing" secondItem="3DQ-Ks-LmQ" secondAttribute="trailing" constant="130" id="dKu-u0-ozj"/>
-                            <constraint firstItem="fcq-PG-pIL" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="pcl-rM-Ojs"/>
-                            <constraint firstAttribute="trailing" secondItem="9WL-CT-dYv" secondAttribute="trailing" constant="64" id="uxu-HJ-yvG"/>
-                            <constraint firstItem="3DQ-Ks-LmQ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="131" id="vgq-Re-9jL"/>
-                            <constraint firstItem="fcq-PG-pIL" firstAttribute="top" secondItem="9WL-CT-dYv" secondAttribute="bottom" constant="8" id="vpG-Cf-c8h"/>
-                            <constraint firstItem="HNr-e2-OXm" firstAttribute="top" secondItem="3DQ-Ks-LmQ" secondAttribute="bottom" constant="20" id="xDm-MH-9y1"/>
+                            <constraint firstItem="fcq-PG-pIL" firstAttribute="top" secondItem="9WL-CT-dYv" secondAttribute="bottom" constant="8" symbolic="YES" id="0lU-2a-AUY"/>
+                            <constraint firstItem="9WL-CT-dYv" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" symbolic="YES" id="3EL-L4-fWu"/>
+                            <constraint firstItem="fcq-PG-pIL" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Ebf-Ye-wwJ"/>
+                            <constraint firstItem="9WL-CT-dYv" firstAttribute="leading" secondItem="idr-UC-rZl" secondAttribute="leading" id="K90-tf-DHz"/>
+                            <constraint firstItem="3DQ-Ks-LmQ" firstAttribute="top" secondItem="idr-UC-rZl" secondAttribute="bottom" constant="8" symbolic="YES" id="NeY-I7-eXc"/>
+                            <constraint firstItem="9WL-CT-dYv" firstAttribute="trailing" secondItem="idr-UC-rZl" secondAttribute="trailing" id="Oty-oa-m5V"/>
+                            <constraint firstAttribute="trailing" secondItem="9WL-CT-dYv" secondAttribute="trailing" constant="20" symbolic="YES" id="Pz1-qb-Ub6"/>
+                            <constraint firstItem="9WL-CT-dYv" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="20" symbolic="YES" id="VtG-RQ-22c"/>
+                            <constraint firstItem="idr-UC-rZl" firstAttribute="top" secondItem="fcq-PG-pIL" secondAttribute="bottom" constant="8" symbolic="YES" id="ZBI-yX-Hb1"/>
+                            <constraint firstItem="idr-UC-rZl" firstAttribute="centerX" secondItem="fcq-PG-pIL" secondAttribute="centerX" id="aBw-8T-DgN"/>
+                            <constraint firstItem="idr-UC-rZl" firstAttribute="centerX" secondItem="3DQ-Ks-LmQ" secondAttribute="centerX" id="bYs-kc-J3X"/>
+                            <constraint firstAttribute="bottom" secondItem="3DQ-Ks-LmQ" secondAttribute="bottom" constant="20" symbolic="YES" id="ssr-9E-qIR"/>
                         </constraints>
                     </view>
                     <connections>

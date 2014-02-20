@@ -48,7 +48,7 @@
         NSLog(@"currlocation is != location lastobject");
         _currLocation = [locations lastObject];
         [self reverseGeocodeLocation:_currLocation];
-        [_addy setText:([self.placemark.addressDictionary valueForKey:@"Street"])];
+        [_addy setText:self.placemark.name];
     }else{
         NSLog(@"Not updating");
     }
@@ -69,6 +69,8 @@
 
 -(IBAction)markLocation:(id)sender{
     NSLog(@"mark it button");
+    MapAnnotation* test = [[MapAnnotation alloc] initWithCoordinate:(_currLocation.coordinate) street:(_placemark.name) city:(_placemark.locality)];
+    [_mapView addAnnotation:(test)];
 }
 
 -(void)reverseGeocodeLocation:(CLLocation*)location{
