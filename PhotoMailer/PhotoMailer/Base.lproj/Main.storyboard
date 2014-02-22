@@ -16,18 +16,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zbz-sA-7uB">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zbz-sA-7uB">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="2ww-px-5Yv" appends="YES" id="sK0-J0-XFi"/>
+                                    <outletCollection property="gestureRecognizers" destination="vvE-L1-yIZ" appends="YES" id="5rR-qm-g0W"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="zbz-sA-7uB" secondAttribute="bottom" id="9oI-KJ-Ort"/>
+                            <constraint firstAttribute="trailing" secondItem="zbz-sA-7uB" secondAttribute="trailing" id="L46-Ss-lRX"/>
+                            <constraint firstItem="zbz-sA-7uB" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="RNM-nF-aod"/>
+                            <constraint firstItem="zbz-sA-7uB" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Z1Z-Gp-NxA"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="zbz-sA-7uB" id="nt8-ku-veV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="2ww-px-5Yv">
+                    <connections>
+                        <action selector="imageTapped:" destination="vXZ-lx-hvc" id="ZPC-1w-8uw"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="vvE-L1-yIZ">
+                    <connections>
+                        <action selector="imageLongPressed:" destination="vXZ-lx-hvc" id="7hL-0Z-Dlr"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
         </scene>
     </scenes>

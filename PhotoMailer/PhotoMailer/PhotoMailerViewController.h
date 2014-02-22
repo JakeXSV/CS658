@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
-@interface PhotoMailerViewController : UIViewController
+@interface PhotoMailerViewController : UIViewController <MFMailComposeViewControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property(nonatomic, weak) IBOutlet UIImageView* imageView;
 
