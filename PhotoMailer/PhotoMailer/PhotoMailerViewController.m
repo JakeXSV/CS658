@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Jake. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "PhotoMailerViewController.h"
 
-@interface ViewController ()
+@interface PhotoMailerViewController ()
 
 @end
 
-@implementation ViewController
+@implementation PhotoMailerViewController
 
 - (void)viewDidLoad
 {
