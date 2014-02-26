@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dja-MQ-ukI"/>
+                        <viewControllerLayoutGuide type="bottom" id="AQV-F8-khX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IeG-eA-Yun">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="0dY-Ra-LIR" appends="YES" id="NwQ-ZN-Lk8"/>
+                                </connections>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2Eg-Fv-jOI">
+                                <rect key="frame" x="40" y="420" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="CUp-jn-KuE"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FSh-n8-XFM">
+                                <rect key="frame" x="40" y="20" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="KT9-QJ-r32"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FSh-n8-XFM" firstAttribute="leading" secondItem="2Eg-Fv-jOI" secondAttribute="leading" id="2Ns-bO-fNo"/>
+                            <constraint firstAttribute="bottom" secondItem="IeG-eA-Yun" secondAttribute="bottom" id="2yP-rT-FDA"/>
+                            <constraint firstItem="2Eg-Fv-jOI" firstAttribute="centerX" secondItem="IeG-eA-Yun" secondAttribute="centerX" id="7C3-gC-BvW"/>
+                            <constraint firstItem="IeG-eA-Yun" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="Jb2-bX-TCq"/>
+                            <constraint firstItem="FSh-n8-XFM" firstAttribute="trailing" secondItem="2Eg-Fv-jOI" secondAttribute="trailing" id="Jff-V3-ZY2"/>
+                            <constraint firstAttribute="bottom" secondItem="2Eg-Fv-jOI" secondAttribute="bottom" constant="20" symbolic="YES" id="SAJ-6F-oh5"/>
+                            <constraint firstItem="FSh-n8-XFM" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="20" symbolic="YES" id="SDd-Yv-fDd"/>
+                            <constraint firstAttribute="trailing" secondItem="IeG-eA-Yun" secondAttribute="trailing" id="cnK-Ww-wV7"/>
+                            <constraint firstItem="IeG-eA-Yun" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="rk8-LW-uWQ"/>
+                            <constraint firstItem="FSh-n8-XFM" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="40" id="to9-QR-XD9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bot" destination="2Eg-Fv-jOI" id="5cO-Jb-MYm"/>
+                        <outlet property="imageView" destination="IeG-eA-Yun" id="Sza-UK-zJa"/>
+                        <outlet property="top" destination="FSh-n8-XFM" id="UGB-Dc-OQh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="0dY-Ra-LIR">
+                    <connections>
+                        <action selector="imageTapped:" destination="vXZ-lx-hvc" id="RxN-6m-YHT"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
