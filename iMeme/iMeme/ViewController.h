@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface ViewController : UIViewController <UITextViewDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property(nonatomic, weak) IBOutlet UIImageView* imageView;
 @property(nonatomic, weak) IBOutlet UITextView* top;
 @property(nonatomic, weak) IBOutlet UITextView* bot;
+
+-(IBAction)moveTextView:(id)sender;
+-(void)textViewDidEndEditing:(UITextView *)textView;
+-(void)textViewDidBeginEditing:(UITextView *)textView;
 
 @end
