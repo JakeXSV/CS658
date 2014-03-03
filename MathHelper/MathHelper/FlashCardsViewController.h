@@ -10,4 +10,11 @@
 
 @interface FlashCardsViewController : UIViewController
 
+@property(nonatomic, weak) IBOutlet UILabel* operand1Label;
+@property(nonatomic, weak) IBOutlet UILabel* operand2Label;
+@property(nonatomic, weak) IBOutlet UILabel* operatorLabel;
+@property(nonatomic, weak) IBOutlet UILabel* answerLabel;
+
+-(IBAction)screenTapped;
+
 @end
