@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QuizViewController : UIViewController
+@interface QuizViewController : UIViewController <UITextFieldDelegate>
 
 @property(nonatomic, strong) IBOutletCollection(UILabel) NSArray* questionLabels;
 @property(nonatomic, strong) IBOutletCollection(UITextField) NSArray* answerTextFields;
 @property(nonatomic, strong) IBOutletCollection(UIImageView) NSArray* correctnessImages;
 @property(nonatomic, weak) IBOutlet UIButton* button;
+
+-(IBAction)closeKeyboard:(id)sender;
 
 @end
