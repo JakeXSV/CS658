@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1461667218C5531700D76B79 /* correct.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1461666918C5531700D76B79 /* correct.jpg */; };
+		1461667318C5531700D76B79 /* flashCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 1461666A18C5531700D76B79 /* flashCard.png */; };
+		1461667418C5531700D76B79 /* flashCards2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1461666B18C5531700D76B79 /* flashCards2.png */; };
+		1461667518C5531700D76B79 /* incorrect.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1461666C18C5531700D76B79 /* incorrect.jpg */; };
+		1461667618C5531700D76B79 /* mathHelper.png in Resources */ = {isa = PBXBuildFile; fileRef = 1461666D18C5531700D76B79 /* mathHelper.png */; };
+		1461667718C5531700D76B79 /* mathHelperBig.png in Resources */ = {isa = PBXBuildFile; fileRef = 1461666E18C5531700D76B79 /* mathHelperBig.png */; };
+		1461667818C5531700D76B79 /* mathHelperSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 1461666F18C5531700D76B79 /* mathHelperSmall.png */; };
+		1461667918C5531700D76B79 /* quiz.png in Resources */ = {isa = PBXBuildFile; fileRef = 1461667018C5531700D76B79 /* quiz.png */; };
+		1461667A18C5531700D76B79 /* quiz2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1461667118C5531700D76B79 /* quiz2.png */; };
 		23CB64EF18C4FFDD00C2042A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23CB64EE18C4FFDD00C2042A /* Foundation.framework */; };
 		23CB64F118C4FFDD00C2042A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23CB64F018C4FFDD00C2042A /* CoreGraphics.framework */; };
 		23CB64F318C4FFDD00C2042A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23CB64F218C4FFDD00C2042A /* UIKit.framework */; };
@@ -35,6 +44,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1461666918C5531700D76B79 /* correct.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = correct.jpg; path = MathHelperImages/correct.jpg; sourceTree = SOURCE_ROOT; };
+		1461666A18C5531700D76B79 /* flashCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = flashCard.png; path = MathHelperImages/flashCard.png; sourceTree = SOURCE_ROOT; };
+		1461666B18C5531700D76B79 /* flashCards2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = flashCards2.png; path = MathHelperImages/flashCards2.png; sourceTree = SOURCE_ROOT; };
+		1461666C18C5531700D76B79 /* incorrect.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = incorrect.jpg; path = MathHelperImages/incorrect.jpg; sourceTree = SOURCE_ROOT; };
+		1461666D18C5531700D76B79 /* mathHelper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mathHelper.png; path = MathHelperImages/mathHelper.png; sourceTree = SOURCE_ROOT; };
+		1461666E18C5531700D76B79 /* mathHelperBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mathHelperBig.png; path = MathHelperImages/mathHelperBig.png; sourceTree = SOURCE_ROOT; };
+		1461666F18C5531700D76B79 /* mathHelperSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mathHelperSmall.png; path = MathHelperImages/mathHelperSmall.png; sourceTree = SOURCE_ROOT; };
+		1461667018C5531700D76B79 /* quiz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = quiz.png; path = MathHelperImages/quiz.png; sourceTree = SOURCE_ROOT; };
+		1461667118C5531700D76B79 /* quiz2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = quiz2.png; path = MathHelperImages/quiz2.png; sourceTree = SOURCE_ROOT; };
 		23CB64EB18C4FFDD00C2042A /* MathHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MathHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23CB64EE18C4FFDD00C2042A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		23CB64F018C4FFDD00C2042A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -82,6 +100,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1461667B18C5538900D76B79 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				1461666918C5531700D76B79 /* correct.jpg */,
+				1461666A18C5531700D76B79 /* flashCard.png */,
+				1461666B18C5531700D76B79 /* flashCards2.png */,
+				1461666C18C5531700D76B79 /* incorrect.jpg */,
+				1461666D18C5531700D76B79 /* mathHelper.png */,
+				1461666E18C5531700D76B79 /* mathHelperBig.png */,
+				1461666F18C5531700D76B79 /* mathHelperSmall.png */,
+				1461667018C5531700D76B79 /* quiz.png */,
+				1461667118C5531700D76B79 /* quiz2.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		23CB64E218C4FFDD00C2042A = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +149,7 @@
 		23CB64F418C4FFDD00C2042A /* MathHelper */ = {
 			isa = PBXGroup;
 			children = (
+				1461667B18C5538900D76B79 /* Images */,
 				23CB64FD18C4FFDD00C2042A /* AppDelegate.h */,
 				23CB64FE18C4FFDD00C2042A /* AppDelegate.m */,
 				23CB650018C4FFDD00C2042A /* Main.storyboard */,
@@ -233,9 +268,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1461667918C5531700D76B79 /* quiz.png in Resources */,
+				1461667218C5531700D76B79 /* correct.jpg in Resources */,
+				1461667418C5531700D76B79 /* flashCards2.png in Resources */,
+				1461667318C5531700D76B79 /* flashCard.png in Resources */,
+				1461667818C5531700D76B79 /* mathHelperSmall.png in Resources */,
+				1461667618C5531700D76B79 /* mathHelper.png in Resources */,
+				1461667718C5531700D76B79 /* mathHelperBig.png in Resources */,
 				23CB650A18C4FFDD00C2042A /* Images.xcassets in Resources */,
 				23CB64F918C4FFDD00C2042A /* InfoPlist.strings in Resources */,
+				1461667518C5531700D76B79 /* incorrect.jpg in Resources */,
 				23CB650218C4FFDD00C2042A /* Main.storyboard in Resources */,
+				1461667A18C5531700D76B79 /* quiz2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +510,7 @@
 				23CB652218C4FFDE00C2042A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		23CB652318C4FFDE00C2042A /* Build configuration list for PBXNativeTarget "MathHelperTests" */ = {
 			isa = XCConfigurationList;
@@ -474,6 +519,7 @@
 				23CB652518C4FFDE00C2042A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

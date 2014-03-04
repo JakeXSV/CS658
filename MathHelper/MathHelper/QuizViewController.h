@@ -10,4 +10,9 @@
 
 @interface QuizViewController : UIViewController
 
+@property(nonatomic, strong) IBOutletCollection(UILabel) NSArray* questionLabels;
+@property(nonatomic, strong) IBOutletCollection(UITextField) NSArray* answerTextFields;
+@property(nonatomic, strong) IBOutletCollection(UIImageView) NSArray* correctnessImages;
+@property(nonatomic, weak) IBOutlet UIButton* button;
+
 @end
