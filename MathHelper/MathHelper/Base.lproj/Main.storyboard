@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -73,7 +73,7 @@
                             <outletCollection property="gestureRecognizers" destination="hG8-8b-QZk" appends="YES" id="zCS-hL-Wlt"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="FlashCards" image="flashCard.png" id="u1e-5L-l1D"/>
+                    <tabBarItem key="tabBarItem" title="Add/Sub" image="flashCard.png" id="u1e-5L-l1D"/>
                     <connections>
                         <outlet property="answerLabel" destination="acb-hA-iaS" id="s91-P9-KPd"/>
                         <outlet property="operand1Label" destination="ZII-hp-lor" id="02D-Ds-pDn"/>
@@ -89,6 +89,25 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="653" y="-138"/>
+        </scene>
+        <!--View Controller - Mult/Div-->
+        <scene sceneID="2uh-R9-EtD">
+            <objects>
+                <viewController id="utj-ai-tSR" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3dd-8y-Nlp"/>
+                        <viewControllerLayoutGuide type="bottom" id="8f1-sx-p2o"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="of5-VR-P7b">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Mult/Div" id="tfw-IX-1iP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jIz-kp-Kds" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1016" y="-136"/>
         </scene>
         <!--Quiz View Controller - Second-->
         <scene sceneID="ot8-2e-RuS">
@@ -410,7 +429,7 @@
                             <outletCollection property="gestureRecognizers" destination="BEH-PW-QUu" appends="YES" id="0ZQ-t8-hbB"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Quiz" image="quiz.png" id="Z7h-1E-pvt"/>
+                    <tabBarItem key="tabBarItem" title="Add/Sub Quiz" image="quiz.png" id="Z7h-1E-pvt"/>
                     <connections>
                         <outlet property="button" destination="z3B-6n-vo1" id="kWV-jg-wKV"/>
                         <outletCollection property="correctnessImages" destination="DM0-aJ-RLr" id="cPd-0k-a5T"/>
@@ -454,6 +473,25 @@
             </objects>
             <point key="canvasLocation" x="653" y="543"/>
         </scene>
+        <!--View Controller - Mult/Div Quiz-->
+        <scene sceneID="y09-ad-CRp">
+            <objects>
+                <viewController id="67e-YA-7yM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ii8-ES-K8X"/>
+                        <viewControllerLayoutGuide type="bottom" id="yss-DN-iOU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="G1x-Rb-uba">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Mult/Div Quiz" id="2ZX-qq-0QO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sdd-BJ-WuR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1018" y="541"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Vex-rW-GRa">
             <objects>
@@ -467,6 +505,8 @@
                     <connections>
                         <segue destination="CZ4-MO-1fc" kind="relationship" relationship="viewControllers" id="SUk-Ux-ee1"/>
                         <segue destination="QUy-BD-bpt" kind="relationship" relationship="viewControllers" id="M8t-EP-wfW"/>
+                        <segue destination="67e-YA-7yM" kind="relationship" relationship="viewControllers" id="elJ-cY-xwM"/>
+                        <segue destination="utj-ai-tSR" kind="relationship" relationship="viewControllers" id="lQj-SK-S3o"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>

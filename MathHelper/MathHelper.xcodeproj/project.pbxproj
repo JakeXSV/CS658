@@ -100,6 +100,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14159FB118C695F2000EED26 /* FlashCards */ = {
+			isa = PBXGroup;
+			children = (
+				23CB650318C4FFDD00C2042A /* FlashCardsViewController.h */,
+				23CB650418C4FFDD00C2042A /* FlashCardsViewController.m */,
+			);
+			name = FlashCards;
+			sourceTree = "<group>";
+		};
+		14159FB218C695FF000EED26 /* Quiz */ = {
+			isa = PBXGroup;
+			children = (
+				23CB650618C4FFDD00C2042A /* QuizViewController.h */,
+				23CB650718C4FFDD00C2042A /* QuizViewController.m */,
+			);
+			name = Quiz;
+			sourceTree = "<group>";
+		};
 		1461667B18C5538900D76B79 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,14 +167,12 @@
 		23CB64F418C4FFDD00C2042A /* MathHelper */ = {
 			isa = PBXGroup;
 			children = (
+				14159FB218C695FF000EED26 /* Quiz */,
+				14159FB118C695F2000EED26 /* FlashCards */,
 				1461667B18C5538900D76B79 /* Images */,
 				23CB64FD18C4FFDD00C2042A /* AppDelegate.h */,
 				23CB64FE18C4FFDD00C2042A /* AppDelegate.m */,
 				23CB650018C4FFDD00C2042A /* Main.storyboard */,
-				23CB650318C4FFDD00C2042A /* FlashCardsViewController.h */,
-				23CB650418C4FFDD00C2042A /* FlashCardsViewController.m */,
-				23CB650618C4FFDD00C2042A /* QuizViewController.h */,
-				23CB650718C4FFDD00C2042A /* QuizViewController.m */,
 				23CB650918C4FFDD00C2042A /* Images.xcassets */,
 				23CB64F518C4FFDD00C2042A /* Supporting Files */,
 			);
