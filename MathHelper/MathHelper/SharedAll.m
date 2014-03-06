@@ -2,7 +2,7 @@
 //  SharedAll.m
 //  MathHelper
 //
-//  Created by Jacob Henry Prather on 3/5/14.
+//  Created by Jake on 3/5/14.
 //  Copyright (c) 2014 Jake. All rights reserved.
 //
 
@@ -10,8 +10,12 @@
 
 @implementation SharedAll
 
--(int)getRandomNumber{
+-(int)getRandomNumberTo99{
     return arc4random_uniform(99) + 1;
+}
+
+-(int)getRandomNumberTo9{
+    return arc4random_uniform(9) + 1;
 }
 
 -(int)getRandomOperation{

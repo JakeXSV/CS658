@@ -41,8 +41,8 @@
 
 -(void)generateQuiz{
     for(UILabel* questionLabel in self.questionLabels){
-        int op1 = [self.allHelper getRandomNumber];
-        int op2 = [self.allHelper getRandomNumber];
+        int op1 = [self.allHelper getRandomNumberTo99];
+        int op2 = [self.allHelper getRandomNumberTo99];
         int op = [self.allHelper getRandomOperation];
         int answer = ((op==0)?(op1+op2):(op1-op2));
         [questionLabel setText:([NSString stringWithFormat:@"%i %@ %i\t=",op1,(op==0)?@"+":@"-",op2])];
