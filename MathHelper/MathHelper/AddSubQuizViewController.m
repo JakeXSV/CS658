@@ -6,26 +6,31 @@
 //  Copyright (c) 2014 Jake. All rights reserved.
 //
 
-#import "QuizViewController.h"
+#import "AddSubQuizViewController.h"
 
-@interface QuizViewController ()
+@interface AddSubQuizViewController ()
 @property(nonatomic, strong) NSMutableArray* answers;
 @property(nonatomic, strong) UIImage* correctImage;
 @property(nonatomic, strong) UIImage* incorrectImage;
 @property(nonatomic, assign) BOOL isSlidUp;
+@property(nonatomic, strong) SharedAll* allHelper;
+@property(nonatomic, strong) SharedQuiz* quizHelper;
 @end
 
-@implementation QuizViewController
+@implementation AddSubQuizViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.answers = [[NSMutableArray alloc]init];
-    self.correctImage = [[UIImage alloc] initWithContentsOfFile:([[NSBundle mainBundle] pathForResource:@"correct" ofType:@"jpg"])];
-    self.incorrectImage = [[UIImage alloc] initWithContentsOfFile:([[NSBundle mainBundle] pathForResource:@"incorrect" ofType:@"jpg"])];
+    self.allHelper = [[SharedAll alloc]init];
+    self.quizHelper = [[SharedQuiz alloc]init];
+    self.correctImage = [self.quizHelper getCorrectImage];
+    self.incorrectImage = [self.quizHelper getIncorrectImage];
     self.isSlidUp = false;
-    [self setTextFieldDelegates];
+    //[self setTextFieldDelegates];
+    [self.quizHelper setTextFieldDelegates:(self.answerTextFields) delegateView:(self)];
     [self generateQuiz];
 }
 

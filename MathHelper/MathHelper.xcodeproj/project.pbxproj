@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1429411918C7EB7A008F4254 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1429411818C7EB7A008F4254 /* Default-568h@2x.png */; };
+		1429411C18C7EBEF008F4254 /* MultDivQuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1429411B18C7EBEF008F4254 /* MultDivQuizViewController.m */; };
+		1429412218C7ECCA008F4254 /* MultDivFCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1429412118C7ECCA008F4254 /* MultDivFCViewController.m */; };
+		1429412618C7ECF3008F4254 /* SharedQuiz.m in Sources */ = {isa = PBXBuildFile; fileRef = 1429412518C7ECF3008F4254 /* SharedQuiz.m */; };
+		1429412918C7ED06008F4254 /* SharedFlashCards.m in Sources */ = {isa = PBXBuildFile; fileRef = 1429412818C7ED06008F4254 /* SharedFlashCards.m */; };
+		1429412C18C7ED7B008F4254 /* SharedAll.m in Sources */ = {isa = PBXBuildFile; fileRef = 1429412B18C7ED7B008F4254 /* SharedAll.m */; };
 		1461667218C5531700D76B79 /* correct.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1461666918C5531700D76B79 /* correct.jpg */; };
 		1461667318C5531700D76B79 /* flashCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 1461666A18C5531700D76B79 /* flashCard.png */; };
 		1461667418C5531700D76B79 /* flashCards2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1461666B18C5531700D76B79 /* flashCards2.png */; };
@@ -23,8 +29,8 @@
 		23CB64FB18C4FFDD00C2042A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 23CB64FA18C4FFDD00C2042A /* main.m */; };
 		23CB64FF18C4FFDD00C2042A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 23CB64FE18C4FFDD00C2042A /* AppDelegate.m */; };
 		23CB650218C4FFDD00C2042A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23CB650018C4FFDD00C2042A /* Main.storyboard */; };
-		23CB650518C4FFDD00C2042A /* FlashCardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23CB650418C4FFDD00C2042A /* FlashCardsViewController.m */; };
-		23CB650818C4FFDD00C2042A /* QuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23CB650718C4FFDD00C2042A /* QuizViewController.m */; };
+		23CB650518C4FFDD00C2042A /* AddSubFCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23CB650418C4FFDD00C2042A /* AddSubFCViewController.m */; };
+		23CB650818C4FFDD00C2042A /* AddSubQuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23CB650718C4FFDD00C2042A /* AddSubQuizViewController.m */; };
 		23CB650A18C4FFDD00C2042A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23CB650918C4FFDD00C2042A /* Images.xcassets */; };
 		23CB651118C4FFDE00C2042A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23CB651018C4FFDE00C2042A /* XCTest.framework */; };
 		23CB651218C4FFDE00C2042A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23CB64EE18C4FFDD00C2042A /* Foundation.framework */; };
@@ -44,6 +50,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1429411818C7EB7A008F4254 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		1429411A18C7EBEF008F4254 /* MultDivQuizViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultDivQuizViewController.h; sourceTree = "<group>"; };
+		1429411B18C7EBEF008F4254 /* MultDivQuizViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultDivQuizViewController.m; sourceTree = "<group>"; };
+		1429412018C7ECCA008F4254 /* MultDivFCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultDivFCViewController.h; sourceTree = "<group>"; };
+		1429412118C7ECCA008F4254 /* MultDivFCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultDivFCViewController.m; sourceTree = "<group>"; };
+		1429412418C7ECF3008F4254 /* SharedQuiz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedQuiz.h; sourceTree = "<group>"; };
+		1429412518C7ECF3008F4254 /* SharedQuiz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedQuiz.m; sourceTree = "<group>"; };
+		1429412718C7ED06008F4254 /* SharedFlashCards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedFlashCards.h; sourceTree = "<group>"; };
+		1429412818C7ED06008F4254 /* SharedFlashCards.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedFlashCards.m; sourceTree = "<group>"; };
+		1429412A18C7ED7B008F4254 /* SharedAll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedAll.h; sourceTree = "<group>"; };
+		1429412B18C7ED7B008F4254 /* SharedAll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedAll.m; sourceTree = "<group>"; };
 		1461666918C5531700D76B79 /* correct.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = correct.jpg; path = MathHelperImages/correct.jpg; sourceTree = SOURCE_ROOT; };
 		1461666A18C5531700D76B79 /* flashCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = flashCard.png; path = MathHelperImages/flashCard.png; sourceTree = SOURCE_ROOT; };
 		1461666B18C5531700D76B79 /* flashCards2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = flashCards2.png; path = MathHelperImages/flashCards2.png; sourceTree = SOURCE_ROOT; };
@@ -64,10 +81,10 @@
 		23CB64FD18C4FFDD00C2042A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		23CB64FE18C4FFDD00C2042A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		23CB650118C4FFDD00C2042A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		23CB650318C4FFDD00C2042A /* FlashCardsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlashCardsViewController.h; sourceTree = "<group>"; };
-		23CB650418C4FFDD00C2042A /* FlashCardsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlashCardsViewController.m; sourceTree = "<group>"; };
-		23CB650618C4FFDD00C2042A /* QuizViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuizViewController.h; sourceTree = "<group>"; };
-		23CB650718C4FFDD00C2042A /* QuizViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuizViewController.m; sourceTree = "<group>"; };
+		23CB650318C4FFDD00C2042A /* AddSubFCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddSubFCViewController.h; sourceTree = "<group>"; };
+		23CB650418C4FFDD00C2042A /* AddSubFCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddSubFCViewController.m; sourceTree = "<group>"; };
+		23CB650618C4FFDD00C2042A /* AddSubQuizViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddSubQuizViewController.h; sourceTree = "<group>"; };
+		23CB650718C4FFDD00C2042A /* AddSubQuizViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddSubQuizViewController.m; sourceTree = "<group>"; };
 		23CB650918C4FFDD00C2042A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		23CB650F18C4FFDE00C2042A /* MathHelperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MathHelperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		23CB651018C4FFDE00C2042A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -103,8 +120,10 @@
 		14159FB118C695F2000EED26 /* FlashCards */ = {
 			isa = PBXGroup;
 			children = (
-				23CB650318C4FFDD00C2042A /* FlashCardsViewController.h */,
-				23CB650418C4FFDD00C2042A /* FlashCardsViewController.m */,
+				23CB650318C4FFDD00C2042A /* AddSubFCViewController.h */,
+				23CB650418C4FFDD00C2042A /* AddSubFCViewController.m */,
+				1429412018C7ECCA008F4254 /* MultDivFCViewController.h */,
+				1429412118C7ECCA008F4254 /* MultDivFCViewController.m */,
 			);
 			name = FlashCards;
 			sourceTree = "<group>";
@@ -112,10 +131,25 @@
 		14159FB218C695FF000EED26 /* Quiz */ = {
 			isa = PBXGroup;
 			children = (
-				23CB650618C4FFDD00C2042A /* QuizViewController.h */,
-				23CB650718C4FFDD00C2042A /* QuizViewController.m */,
+				23CB650618C4FFDD00C2042A /* AddSubQuizViewController.h */,
+				23CB650718C4FFDD00C2042A /* AddSubQuizViewController.m */,
+				1429411A18C7EBEF008F4254 /* MultDivQuizViewController.h */,
+				1429411B18C7EBEF008F4254 /* MultDivQuizViewController.m */,
 			);
 			name = Quiz;
+			sourceTree = "<group>";
+		};
+		1429412318C7ECDA008F4254 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				1429412418C7ECF3008F4254 /* SharedQuiz.h */,
+				1429412518C7ECF3008F4254 /* SharedQuiz.m */,
+				1429412718C7ED06008F4254 /* SharedFlashCards.h */,
+				1429412818C7ED06008F4254 /* SharedFlashCards.m */,
+				1429412A18C7ED7B008F4254 /* SharedAll.h */,
+				1429412B18C7ED7B008F4254 /* SharedAll.m */,
+			);
+			name = Shared;
 			sourceTree = "<group>";
 		};
 		1461667B18C5538900D76B79 /* Images */ = {
@@ -137,6 +171,7 @@
 		23CB64E218C4FFDD00C2042A = {
 			isa = PBXGroup;
 			children = (
+				1429411818C7EB7A008F4254 /* Default-568h@2x.png */,
 				23CB64F418C4FFDD00C2042A /* MathHelper */,
 				23CB651618C4FFDE00C2042A /* MathHelperTests */,
 				23CB64ED18C4FFDD00C2042A /* Frameworks */,
@@ -167,6 +202,7 @@
 		23CB64F418C4FFDD00C2042A /* MathHelper */ = {
 			isa = PBXGroup;
 			children = (
+				1429412318C7ECDA008F4254 /* Shared */,
 				14159FB218C695FF000EED26 /* Quiz */,
 				14159FB118C695F2000EED26 /* FlashCards */,
 				1461667B18C5538900D76B79 /* Images */,
@@ -293,6 +329,7 @@
 				1461667718C5531700D76B79 /* mathHelperBig.png in Resources */,
 				23CB650A18C4FFDD00C2042A /* Images.xcassets in Resources */,
 				23CB64F918C4FFDD00C2042A /* InfoPlist.strings in Resources */,
+				1429411918C7EB7A008F4254 /* Default-568h@2x.png in Resources */,
 				1461667518C5531700D76B79 /* incorrect.jpg in Resources */,
 				23CB650218C4FFDD00C2042A /* Main.storyboard in Resources */,
 				1461667A18C5531700D76B79 /* quiz2.png in Resources */,
@@ -314,10 +351,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23CB650818C4FFDD00C2042A /* QuizViewController.m in Sources */,
+				23CB650818C4FFDD00C2042A /* AddSubQuizViewController.m in Sources */,
+				1429412C18C7ED7B008F4254 /* SharedAll.m in Sources */,
 				23CB64FF18C4FFDD00C2042A /* AppDelegate.m in Sources */,
-				23CB650518C4FFDD00C2042A /* FlashCardsViewController.m in Sources */,
+				1429412618C7ECF3008F4254 /* SharedQuiz.m in Sources */,
+				23CB650518C4FFDD00C2042A /* AddSubFCViewController.m in Sources */,
+				1429412218C7ECCA008F4254 /* MultDivFCViewController.m in Sources */,
 				23CB64FB18C4FFDD00C2042A /* main.m in Sources */,
+				1429411C18C7EBEF008F4254 /* MultDivQuizViewController.m in Sources */,
+				1429412918C7ED06008F4254 /* SharedFlashCards.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

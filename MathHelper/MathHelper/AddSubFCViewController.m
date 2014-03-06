@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Jake. All rights reserved.
 //
 
-#import "FlashCardsViewController.h"
+#import "AddSubFCViewController.h"
 
-@interface FlashCardsViewController ()
+@interface AddSubFCViewController ()
 @property(nonatomic, strong) NSString* answer;
 @end
 
-@implementation FlashCardsViewController
+@implementation AddSubFCViewController
 
 - (void)viewDidLoad
 {

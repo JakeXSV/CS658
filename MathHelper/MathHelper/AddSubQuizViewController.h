@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SharedAll.h"
+#import "SharedQuiz.h"
 
-@interface QuizViewController : UIViewController <UITextFieldDelegate>
+@interface AddSubQuizViewController : UIViewController <UITextFieldDelegate>
 
 @property(nonatomic, strong) IBOutletCollection(UILabel) NSArray* questionLabels;
 @property(nonatomic, strong) IBOutletCollection(UITextField) NSArray* answerTextFields;
