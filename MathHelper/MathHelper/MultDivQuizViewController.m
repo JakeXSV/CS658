@@ -59,8 +59,8 @@
             op2 = [self.allHelper getRandomNumberTo9];
         }else{
             //div
-            op1 = [self.allHelper getRandomNumberTo9];
             op2 = [self.allHelper getRandomNumberTo9];
+            op1 = ([self.allHelper getRandomNumberTo9] * op2);
         }
         int answer = ((op==0)?(op1*op2):(op1/op2));
         [questionLabel setText:([NSString stringWithFormat:@"%i %@ %i\t=",op1,(op==0)?@"*":@"/",op2])];
