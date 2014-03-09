@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2318494E18CC3A90000F0AA2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2318494D18CC3A90000F0AA2 /* AVFoundation.framework */; };
 		2367645B18CC054B004FE5C6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2367645A18CC054B004FE5C6 /* Foundation.framework */; };
 		2367645D18CC054B004FE5C6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2367645C18CC054B004FE5C6 /* CoreGraphics.framework */; };
 		2367645F18CC054B004FE5C6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2367645E18CC054B004FE5C6 /* UIKit.framework */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2318494D18CC3A90000F0AA2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2367645718CC054B004FE5C6 /* Soundboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soundboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2367645A18CC054B004FE5C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2367645C18CC054B004FE5C6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -85,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2318494E18CC3A90000F0AA2 /* AVFoundation.framework in Frameworks */,
 				2367645D18CC054B004FE5C6 /* CoreGraphics.framework in Frameworks */,
 				2367645F18CC054B004FE5C6 /* UIKit.framework in Frameworks */,
 				2367645B18CC054B004FE5C6 /* Foundation.framework in Frameworks */,
@@ -126,6 +129,7 @@
 		2367645918CC054B004FE5C6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2318494D18CC3A90000F0AA2 /* AVFoundation.framework */,
 				2367645A18CC054B004FE5C6 /* Foundation.framework */,
 				2367645C18CC054B004FE5C6 /* CoreGraphics.framework */,
 				2367645E18CC054B004FE5C6 /* UIKit.framework */,
@@ -527,6 +531,7 @@
 				2367648B18CC054B004FE5C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2367648C18CC054B004FE5C6 /* Build configuration list for PBXNativeTarget "SoundboardTests" */ = {
 			isa = XCConfigurationList;
@@ -535,6 +540,7 @@
 				2367648E18CC054B004FE5C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
