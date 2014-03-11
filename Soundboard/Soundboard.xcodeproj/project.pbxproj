@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1421BAE018CFBE6C00B48B9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2367646C18CC054B004FE5C6 /* Main.storyboard */; };
+		1421BAE118CFBE6D00B48B9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2367646C18CC054B004FE5C6 /* Main.storyboard */; };
+		1421BAE718CFCE9800B48B9B /* aTableViewImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1421BAE618CFCE9800B48B9B /* aTableViewImage.jpg */; };
 		2318494E18CC3A90000F0AA2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2318494D18CC3A90000F0AA2 /* AVFoundation.framework */; };
 		2367645B18CC054B004FE5C6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2367645A18CC054B004FE5C6 /* Foundation.framework */; };
 		2367645D18CC054B004FE5C6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2367645C18CC054B004FE5C6 /* CoreGraphics.framework */; };
@@ -44,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1421BAE318CFBE6E00B48B9B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		1421BAE618CFCE9800B48B9B /* aTableViewImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = aTableViewImage.jpg; path = Soundboard/Images/aTableViewImage.jpg; sourceTree = "<group>"; };
 		2318494D18CC3A90000F0AA2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2367645718CC054B004FE5C6 /* Soundboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soundboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2367645A18CC054B004FE5C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -141,7 +146,6 @@
 		2367646018CC054B004FE5C6 /* Soundboard */ = {
 			isa = PBXGroup;
 			children = (
-				236764DD18CC3455004FE5C6 /* Sounds */,
 				2367646918CC054B004FE5C6 /* AppDelegate.h */,
 				2367646A18CC054B004FE5C6 /* AppDelegate.m */,
 				2367646C18CC054B004FE5C6 /* Main.storyboard */,
@@ -158,6 +162,7 @@
 		2367646118CC054B004FE5C6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				236764DD18CC3455004FE5C6 /* Sounds */,
 				236764B418CC2753004FE5C6 /* Images */,
 				2367646218CC054B004FE5C6 /* Soundboard-Info.plist */,
 				2367646318CC054B004FE5C6 /* InfoPlist.strings */,
@@ -188,6 +193,7 @@
 		236764B418CC2753004FE5C6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1421BAE618CFCE9800B48B9B /* aTableViewImage.jpg */,
 				236764B318CC2698004FE5C6 /* icon80.png */,
 				236764B218CC265F004FE5C6 /* icon58.png */,
 				236764B118CC25DA004FE5C6 /* icon120.png */,
@@ -293,6 +299,8 @@
 				236764D518CC344F004FE5C6 /* bears.mp3 in Resources */,
 				236764D418CC344F004FE5C6 /* afternoondelight.mp3 in Resources */,
 				2367647318CC054B004FE5C6 /* Images.xcassets in Resources */,
+				1421BAE018CFBE6C00B48B9B /* Main.storyboard in Resources */,
+				1421BAE718CFCE9800B48B9B /* aTableViewImage.jpg in Resources */,
 				236764DC18CC344F004FE5C6 /* smellypirate.mp3 in Resources */,
 				236764D818CC344F004FE5C6 /* ohbaxter.mp3 in Resources */,
 				2367646518CC054B004FE5C6 /* InfoPlist.strings in Resources */,
@@ -309,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2367648418CC054B004FE5C6 /* InfoPlist.strings in Resources */,
+				1421BAE118CFBE6D00B48B9B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +366,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2367646D18CC054B004FE5C6 /* Base */,
+				1421BAE318CFBE6E00B48B9B /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
