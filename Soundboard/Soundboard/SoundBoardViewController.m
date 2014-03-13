@@ -9,13 +9,13 @@
 #import "SoundBoardViewController.h"
 
 @interface SoundBoardViewController ()
-@property(nonatomic, strong) NSMutableArray* anchormanInsultSounds;
-@property(nonatomic, strong) NSMutableArray* anchormanRandomSounds;
-@property(nonatomic, strong) UITableView* anchormanView;
+@property(nonatomic, strong) NSMutableArray* anchormanSounds;
+@property(nonatomic, strong) NSMutableArray* otherMovieSounds;
+@property(nonatomic, strong) UITableView* movieView;
 @property(nonatomic, strong) UITableView* otherView;
 @property(nonatomic, strong) NSMutableArray* otherSounds;
 @property(nonatomic, strong) AVAudioPlayer *player;
-@property(nonatomic, assign) BOOL isAnchorman;
+@property(nonatomic, assign) BOOL isMovie;
 @end
 
 @implementation SoundBoardViewController
@@ -23,12 +23,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.anchormanInsultSounds = [[NSMutableArray alloc]init];
-    self.anchormanRandomSounds = [[NSMutableArray alloc]init];
+    self.anchormanSounds = [[NSMutableArray alloc]init];
+    self.otherMovieSounds = [[NSMutableArray alloc]init];
     self.otherSounds = [[NSMutableArray alloc]init];
-    self.isAnchorman = true;
+    self.isMovie = true;
     self.movieSelector.delegate = self;
-    [self addAnchormanSounds];
+    [self addmovieSounds];
     [self addOtherSounds];
 }
 
@@ -37,26 +37,33 @@
     [super didReceiveMemoryWarning];
 }
 
--(void)addAnchormanSounds{
-    [self.anchormanInsultSounds addObject:([self createSoundBit:(@"Punch") path:(@"punch")])];
-    [self.anchormanInsultSounds addObject:([self createSoundBit:(@"Slap You In Public") path:(@"slap")])];
-    [self.anchormanInsultSounds addObject:([self createSoundBit:(@"Smelly Pirate") path:(@"smellypirate")])];
-    [self.anchormanRandomSounds addObject:([self createSoundBit:(@"Bears") path:(@"bears")])];
-    [self.anchormanRandomSounds addObject:([self createSoundBit:(@"I Love Scotch") path:(@"ilovescotch")])];
-    [self.anchormanRandomSounds addObject:([self createSoundBit:(@"Milk Was a Bad Choice") path:(@"milkwasabadchoice")])];
-    [self.anchormanRandomSounds addObject:([self createSoundBit:(@"Oh Baxter...") path:(@"ohbaxter")])];
-    [self.anchormanRandomSounds addObject:([self createSoundBit:(@"San Diago") path:(@"sandiago")])];
+-(void)addmovieSounds{
+    [self.anchormanSounds addObject:([self createSoundBit:(@"Punch") path:(@"punch")])];
+    [self.anchormanSounds addObject:([self createSoundBit:(@"Slap You In Public") path:(@"slap")])];
+    [self.anchormanSounds addObject:([self createSoundBit:(@"Smelly Pirate") path:(@"smellypirate")])];
+    [self.anchormanSounds addObject:([self createSoundBit:(@"Bears") path:(@"bears")])];
+    [self.anchormanSounds addObject:([self createSoundBit:(@"Afternoon Delight") path:(@"afternoondelight")])];
+    [self.anchormanSounds addObject:([self createSoundBit:(@"Baxter Budha") path:(@"baxterbudha")])];
+    [self.anchormanSounds addObject:([self createSoundBit:(@"Loud Noises") path:(@"loudnoises")])];
+    [self.anchormanSounds addObject:([self createSoundBit:(@"I Love Scotch") path:(@"ilovescotch")])];
+    [self.anchormanSounds addObject:([self createSoundBit:(@"Milk Was a Bad Choice") path:(@"milkwasabadchoice")])];
+    [self.anchormanSounds addObject:([self createSoundBit:(@"Oh Baxter...") path:(@"ohbaxter")])];
+    [self.anchormanSounds addObject:([self createSoundBit:(@"San Diago") path:(@"sandiago")])];
+    
+    [self.otherMovieSounds addObject:([self createSoundBit:(@"Freedom Isn't Free") path:(@"freedomisntfree")])];
+    [self.otherMovieSounds addObject:([self createSoundBit:(@"Matt Damon") path:(@"mattdamon")])];
+    [self.otherMovieSounds addObject:([self createSoundBit:(@"Dayman") path:(@"dayman")])];
+    [self.otherMovieSounds addObject:([self createSoundBit:(@"Job Land") path:(@"jobland")])];
 }
 
 -(void)addOtherSounds{
-    [self.otherSounds addObject:([self createSoundBit:(@"Other1") path:(@"bears")])];
-    [self.otherSounds addObject:([self createSoundBit:(@"Other2") path:(@"ilovescotch")])];
-    [self.otherSounds addObject:([self createSoundBit:(@"Other3") path:(@"milkwasabadchoice")])];
-    [self.otherSounds addObject:([self createSoundBit:(@"Other4") path:(@"ohbaxter")])];
-    [self.otherSounds addObject:([self createSoundBit:(@"Other5") path:(@"punch")])];
-    [self.otherSounds addObject:([self createSoundBit:(@"Other6") path:(@"sandiago")])];
-    [self.otherSounds addObject:([self createSoundBit:(@"Other7") path:(@"slap")])];
-    [self.otherSounds addObject:([self createSoundBit:(@"Other8") path:(@"smellypirate")])];
+    [self.otherSounds addObject:([self createSoundBit:(@"Game Of Thrones") path:(@"catgot")])];
+    [self.otherSounds addObject:([self createSoundBit:(@"Dr.Steve Brule") path:(@"drstevebruleplanets")])];
+    [self.otherSounds addObject:([self createSoundBit:(@"Never Go..") path:(@"fullretard")])];
+    [self.otherSounds addObject:([self createSoundBit:(@"Now You're A Man!") path:(@"nowyoureaman")])];
+    [self.otherSounds addObject:([self createSoundBit:(@"Space Jam Mix") path:(@"spacejam")])];
+    [self.otherSounds addObject:([self createSoundBit:(@"Thomas The Dank Engine") path:(@"thomasthedankengine")])];
+    [self.otherSounds addObject:([self createSoundBit:(@"Truck Yeah") path:(@"truckyeah")])];
 }
 
 -(Sound*)createSoundBit:(NSString*)name path:(NSString*)path{
@@ -76,7 +83,7 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    if(self.isAnchorman){
+    if(self.isMovie){
         return 2;
     }else{
         return 1;
@@ -86,14 +93,14 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     NSString *sectionName;
-    if(self.isAnchorman){
+    if(self.isMovie){
         switch (section)
         {
             case 0:
-                sectionName = NSLocalizedString(@"Insults", @"Insults");
+                sectionName = NSLocalizedString(@"Anchorman", @"Anchorman");
                 break;
             case 1:
-                sectionName = NSLocalizedString(@"Random", @"Random");
+                sectionName = NSLocalizedString(@"Other", @"Other");
                 break;
             default:
                 sectionName = @"";
@@ -104,11 +111,11 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if(self.isAnchorman){
+    if(self.isMovie){
         if(section==0){
-            return 3;
+            return [self.anchormanSounds count];
         }else{
-            return 5;
+            return [self.otherMovieSounds count];
         }
     }else{
         return [self.otherSounds count];
@@ -122,11 +129,11 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:(CellIdentifier) forIndexPath:(indexPath)];
     
     // Determine cell text
-    if(self.isAnchorman){
+    if(self.isMovie){
         if(indexPath.section==0){
-            cell.textLabel.text = [[self.anchormanInsultSounds objectAtIndex:(indexPath.row)] name];
+            cell.textLabel.text = [[self.anchormanSounds objectAtIndex:(indexPath.row)] name];
         }else{
-            cell.textLabel.text = [[self.anchormanRandomSounds objectAtIndex:(indexPath.row)] name];
+            cell.textLabel.text = [[self.otherMovieSounds objectAtIndex:(indexPath.row)] name];
         }
         cell.imageView.image = [UIImage imageNamed:@"aTableViewImage.jpg"];
     }else{
@@ -138,28 +145,36 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(self.isAnchorman){
+    if(self.isMovie){
         if(indexPath.section==0){
-            Sound* soundToBePlayed = [self.anchormanInsultSounds objectAtIndex:(indexPath.row)];
-            _player = [soundToBePlayed audioPlayer];
-            [_player play];
+            [self playSoundFromSoundList:(self.anchormanSounds) atSpot:(indexPath.row)];
         }else{
-            Sound* soundToBePlayed = [self.anchormanRandomSounds objectAtIndex:(indexPath.row)];
-            _player = [soundToBePlayed audioPlayer];
-            [_player play];
+            [self playSoundFromSoundList:(self.otherMovieSounds) atSpot:(indexPath.row)];
         }
     }else{
-        Sound* soundToBePlayed = [self.otherSounds objectAtIndex:(indexPath.row)];
-        _player = [soundToBePlayed audioPlayer];
-        [_player play];
+        [self playSoundFromSoundList:(self.otherSounds) atSpot:(indexPath.row)];
     }
 }
 
+-(void)playSoundFromSoundList:(NSMutableArray*)soundList atSpot:(NSInteger)spot{
+    Sound* soundToBePlayed = [soundList objectAtIndex:(spot)];
+    [_player stop];
+    _player = [soundToBePlayed audioPlayer];
+    [_player play];
+}
+
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
-    if ([[item title] isEqualToString:(@"Anchorman")]){
-        self.isAnchorman = true;
+    if ([[item title] isEqualToString:(@"Movies")]){
+        self.isMovie = true;
+    }else if([[item title] isEqualToString:(@"Other")]){
+        self.isMovie = false;
     }else{
-        self.isAnchorman = false;
+        [_player stop];
+        if(self.isMovie){
+           [tabBar setSelectedItem:(_movies)];
+        }else{
+           [tabBar setSelectedItem:(_other)];
+        }
     }
     [self.tableView reloadData];
 }
