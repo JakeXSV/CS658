@@ -47,7 +47,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <tabBarItem title="Movies" id="iDy-6Z-zHy"/>
+                                    <tabBarItem title="Movies &amp; TV" id="iDy-6Z-zHy"/>
                                     <tabBarItem title="Other" id="9r1-2k-ZQa"/>
                                     <tabBarItem title="Stop Sound" id="0Rh-i9-zpq"/>
                                 </items>

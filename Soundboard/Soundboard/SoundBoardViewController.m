@@ -58,7 +58,7 @@
 
 -(void)addOtherSounds{
     [self.otherSounds addObject:([self createSoundBit:(@"Game Of Thrones") path:(@"catgot")])];
-    [self.otherSounds addObject:([self createSoundBit:(@"Dr.Steve Brule") path:(@"drstevebruleplanets")])];
+    [self.otherSounds addObject:([self createSoundBit:(@"Dr Steve Brule") path:(@"drstevebruleplanets")])];
     [self.otherSounds addObject:([self createSoundBit:(@"Never Go..") path:(@"fullretard")])];
     [self.otherSounds addObject:([self createSoundBit:(@"Now You're A Man!") path:(@"nowyoureaman")])];
     [self.otherSounds addObject:([self createSoundBit:(@"Space Jam Mix") path:(@"spacejam")])];
@@ -132,12 +132,19 @@
     if(self.isMovie){
         if(indexPath.section==0){
             cell.textLabel.text = [[self.anchormanSounds objectAtIndex:(indexPath.row)] name];
+            cell.imageView.image = [UIImage imageNamed:@"aTableViewImage.jpg"];
         }else{
             cell.textLabel.text = [[self.otherMovieSounds objectAtIndex:(indexPath.row)] name];
+            if(indexPath.row < 2){
+                cell.imageView.image = [UIImage imageNamed:@"americaTableViewImage.jpg"];
+            }else if (indexPath.row < 4){
+                cell.imageView.image = [UIImage imageNamed:@"sunnyTableViewImage.jpg"];
+            }else{
+                cell.imageView.image = [[UIImage alloc]init];
+            }
         }
-        cell.imageView.image = [UIImage imageNamed:@"aTableViewImage.jpg"];
     }else{
-        cell.imageView.image = [[UIImage alloc]init];
+        cell.imageView.image = [UIImage imageNamed:@"otherTableViewImage.png"];
         cell.textLabel.text = [[self.otherSounds objectAtIndex:(indexPath.row)] name];
     }
     

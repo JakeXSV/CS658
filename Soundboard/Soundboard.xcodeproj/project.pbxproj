@@ -33,6 +33,9 @@
 		231EEAC818D1688800DE6B92 /* jobland.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231EEAB118D1688800DE6B92 /* jobland.mp3 */; };
 		231EEAC918D1688800DE6B92 /* freedomisntfree.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231EEAB318D1688800DE6B92 /* freedomisntfree.mp3 */; };
 		231EEACA18D1688800DE6B92 /* mattdamon.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231EEAB418D1688800DE6B92 /* mattdamon.mp3 */; };
+		231EEACE18D1736B00DE6B92 /* americaTableViewImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 231EEACB18D1736B00DE6B92 /* americaTableViewImage.jpg */; };
+		231EEACF18D1736B00DE6B92 /* otherTableViewImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 231EEACC18D1736B00DE6B92 /* otherTableViewImage.png */; };
+		231EEAD018D1736B00DE6B92 /* sunnyTableViewImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 231EEACD18D1736B00DE6B92 /* sunnyTableViewImage.jpg */; };
 		2367645B18CC054B004FE5C6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2367645A18CC054B004FE5C6 /* Foundation.framework */; };
 		2367645D18CC054B004FE5C6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2367645C18CC054B004FE5C6 /* CoreGraphics.framework */; };
 		2367645F18CC054B004FE5C6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2367645E18CC054B004FE5C6 /* UIKit.framework */; };
@@ -85,6 +88,9 @@
 		231EEAB118D1688800DE6B92 /* jobland.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jobland.mp3; sourceTree = "<group>"; };
 		231EEAB318D1688800DE6B92 /* freedomisntfree.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = freedomisntfree.mp3; sourceTree = "<group>"; };
 		231EEAB418D1688800DE6B92 /* mattdamon.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mattdamon.mp3; sourceTree = "<group>"; };
+		231EEACB18D1736B00DE6B92 /* americaTableViewImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = americaTableViewImage.jpg; path = Soundboard/Images/americaTableViewImage.jpg; sourceTree = "<group>"; };
+		231EEACC18D1736B00DE6B92 /* otherTableViewImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = otherTableViewImage.png; path = Soundboard/Images/otherTableViewImage.png; sourceTree = "<group>"; };
+		231EEACD18D1736B00DE6B92 /* sunnyTableViewImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sunnyTableViewImage.jpg; path = Soundboard/Images/sunnyTableViewImage.jpg; sourceTree = "<group>"; };
 		2367645718CC054B004FE5C6 /* Soundboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soundboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2367645A18CC054B004FE5C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2367645C18CC054B004FE5C6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -276,6 +282,9 @@
 		236764B418CC2753004FE5C6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				231EEACB18D1736B00DE6B92 /* americaTableViewImage.jpg */,
+				231EEACC18D1736B00DE6B92 /* otherTableViewImage.png */,
+				231EEACD18D1736B00DE6B92 /* sunnyTableViewImage.jpg */,
 				1421BAE618CFCE9800B48B9B /* aTableViewImage.jpg */,
 				236764B318CC2698004FE5C6 /* icon80.png */,
 				236764B218CC265F004FE5C6 /* icon58.png */,
@@ -365,6 +374,7 @@
 			files = (
 				231EEAC918D1688800DE6B92 /* freedomisntfree.mp3 in Resources */,
 				231EEAB818D1688800DE6B92 /* ilovescotch.mp3 in Resources */,
+				231EEACF18D1736B00DE6B92 /* otherTableViewImage.png in Resources */,
 				231EEABC18D1688800DE6B92 /* punch.mp3 in Resources */,
 				2367647318CC054B004FE5C6 /* Images.xcassets in Resources */,
 				231EEAB918D1688800DE6B92 /* loudnoises.mp3 in Resources */,
@@ -378,6 +388,7 @@
 				1421BAE018CFBE6C00B48B9B /* Main.storyboard in Resources */,
 				1421BAE718CFCE9800B48B9B /* aTableViewImage.jpg in Resources */,
 				2367646518CC054B004FE5C6 /* InfoPlist.strings in Resources */,
+				231EEAD018D1736B00DE6B92 /* sunnyTableViewImage.jpg in Resources */,
 				231EEAC118D1688800DE6B92 /* drstevebruleplanets.mp3 in Resources */,
 				231EEAB718D1688800DE6B92 /* bears.mp3 in Resources */,
 				231EEAC018D1688800DE6B92 /* catgot.mp3 in Resources */,
@@ -386,6 +397,7 @@
 				231EEABA18D1688800DE6B92 /* milkwasabadchoice.mp3 in Resources */,
 				231EEAC818D1688800DE6B92 /* jobland.mp3 in Resources */,
 				231EEAB618D1688800DE6B92 /* baxterbudha.mp3 in Resources */,
+				231EEACE18D1736B00DE6B92 /* americaTableViewImage.jpg in Resources */,
 				231EEABB18D1688800DE6B92 /* ohbaxter.mp3 in Resources */,
 				231EEABF18D1688800DE6B92 /* smellypirate.mp3 in Resources */,
 				231EEAC618D1688800DE6B92 /* truckyeah.mp3 in Resources */,
