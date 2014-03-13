@@ -20,7 +20,7 @@
 
 @implementation SoundBoardViewController
 
-- (void)viewDidLoad
+-(void)viewDidLoad
 {
     [super viewDidLoad];
     self.anchormanSounds = [[NSMutableArray alloc]init];
@@ -30,6 +30,11 @@
     self.movieSelector.delegate = self;
     [self addmovieSounds];
     [self addOtherSounds];
+    [self makeSectionHeadersNotFloat];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -90,7 +95,15 @@
     }
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+-(BOOL)allowsHeaderViewToFloat{
+    return NO;
+}
+
+-(BOOL)allowsFooterViewToFloat{
+    return NO;
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     NSString *sectionName;
     if(self.isMovie){
@@ -110,6 +123,38 @@
     return sectionName;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if(self.isMovie){
+        return 50.0f;
+    }else{
+        return 0.0f;
+    }
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if(self.isMovie){
+        NSString *sectionTitle = [self tableView:tableView titleForHeaderInSection:section];
+        if (sectionTitle == nil) {
+            sectionTitle = @"";
+        }
+        
+        // Create label with section title
+        UILabel *label = [[UILabel alloc] init];
+        label.frame = CGRectMake(15, 20, 300, 30);
+        
+        label.backgroundColor = [UIColor groupTableViewBackgroundColor ];
+        label.textColor = [UIColor grayColor];
+        label.text = sectionTitle;
+        // Create header view and add label as a subview
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 50.0f)];
+        view.backgroundColor = [UIColor groupTableViewBackgroundColor ];
+        [view addSubview:label];
+        return view;
+    }else{
+        return nil; //no sections for other
+    }
+}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if(self.isMovie){
         if(section==0){
@@ -123,12 +168,10 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    // Create cell
+// Create cell
     static NSString* CellIdentifier=@"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:(CellIdentifier) forIndexPath:(indexPath)];
-    
-    // Determine cell text
+// Determine cell text
     if(self.isMovie){
         if(indexPath.section==0){
             cell.textLabel.text = [[self.anchormanSounds objectAtIndex:(indexPath.row)] name];
@@ -147,7 +190,6 @@
         cell.imageView.image = [UIImage imageNamed:@"otherTableViewImage.png"];
         cell.textLabel.text = [[self.otherSounds objectAtIndex:(indexPath.row)] name];
     }
-    
     return cell;
 }
 
@@ -184,6 +226,13 @@
         }
     }
     [self.tableView reloadData];
+}
+
+-(void)makeSectionHeadersNotFloat{
+    CGFloat dummyViewHeight = 50;
+    UIView *dummyView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, dummyViewHeight)];
+    self.tableView.tableHeaderView = dummyView;
+    self.tableView.contentInset = UIEdgeInsetsMake(-dummyViewHeight, 0, 0, 0);
 }
 
 @end
