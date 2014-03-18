@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 @class TodoListItem;
 
-@interface TodoListItemDetailViewController : UIViewController
+@interface TodoListItemDetailViewController : UIViewController <UITextFieldDelegate,UITextViewDelegate>
 
 @property(nonatomic, weak) IBOutlet UITextField* titleTextField;
-@property(nonatomic, weak) IBOutlet UITextField* textTextView;
+@property(nonatomic, weak) IBOutlet UITextView* textTextView;
 @property(nonatomic, weak) IBOutlet UISwitch* completedSwitch;
 @property(nonatomic, weak) TodoListItem* item;
+
+-(IBAction)screenTapped;
 
 @end

@@ -9,6 +9,7 @@
 #import "TodoListTableViewController.h"
 #import "TodoListItemTableViewCell.h"
 #import "TodoListItem.h"
+#import "TodoListItemDetailViewController.h"
 
 @interface TodoListTableViewController ()
 @property(nonatomic, strong) NSMutableArray* todoList;
@@ -36,6 +37,10 @@
     self.todoList = [[NSMutableArray alloc]init];
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [self.tableView reloadData];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -52,8 +57,17 @@
     //[self.tableView reloadData]; works but no animation
 }
 
--(void)hideKeyboard{
-    [self dismissViewControllerAnimated:(YES) completion:nil];
+#pragma mark = Navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:(@"ShowDetailView")]){
+        TodoListItemDetailViewController* dest = [segue destinationViewController];
+        NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
+        TodoListItem* item = [self.todoList objectAtIndex:(indexPath.row)];
+        dest.item = item;
+    }
 }
 
 #pragma mark - Table view data source
@@ -69,6 +83,11 @@
     TodoListItem* item = [self.todoList objectAtIndex:(indexPath.row)];
     cell.item = item;
     cell.titleTextField.text = item.title;
+    if(item.isCompleted){
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }else{
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
     return cell;
 }
 
@@ -107,17 +126,6 @@
 {
     // Return NO if you do not want the item to be re-orderable.
     return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
 */
 
