@@ -10,6 +10,8 @@
 
 @interface TodoListTableViewController : UITableViewController
 
+@property(nonatomic, strong) IBOutlet UIBarButtonItem* editButton;
 -(IBAction)addTodoListItem;
+-(IBAction)startEditing:(id)sender;
 
 @end

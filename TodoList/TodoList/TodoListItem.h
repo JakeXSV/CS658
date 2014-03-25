@@ -13,6 +13,7 @@
 @property(nonatomic, strong) NSMutableString* title;
 @property(nonatomic, strong) NSMutableString* text;
 @property(nonatomic, assign) BOOL isCompleted;
+@property(nonatomic, strong) NSDate* dueDate;
 
 -(id)init;
 
