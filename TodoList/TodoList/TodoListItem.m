@@ -14,6 +14,7 @@
     self = [super init];
     if(self){
         _title = [NSMutableString stringWithString:(@"New Todo Item")];
+        _dueDateDateLabelText = @"None";
         _isCompleted = NO;
     }
     return self;

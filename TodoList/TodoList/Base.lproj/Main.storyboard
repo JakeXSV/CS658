@@ -116,12 +116,16 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="None" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8o-79-Cu1">
-                                <rect key="frame" x="121" y="326" width="42" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="None" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8o-79-Cu1">
+                                <rect key="frame" x="121" y="326" width="179" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="bye-Jf-Uva" appends="YES" id="9ij-op-2dL"/>
+                                </connections>
                             </label>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Qub-GU-zqe">
                                 <rect key="frame" x="0.0" y="386" width="320" height="162"/>
@@ -130,7 +134,7 @@
                                     <!--2014-03-26 22:44:01 +0000-->
                                 </date>
                                 <timeZone key="timeZone" name="America/Los_Angeles">
-                                    <mutableData key="data">
+                                    <data key="data">
 VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
 y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
 5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
@@ -148,8 +152,11 @@ f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
-</mutableData>
+</data>
                                 </timeZone>
+                                <connections>
+                                    <action selector="dateHasBeenSet" destination="orz-Lb-e1o" eventType="valueChanged" id="qBC-74-8mA"/>
+                                </connections>
                             </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -161,7 +168,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <navigationItem key="navigationItem" id="qwv-Y8-Z2A"/>
                     <connections>
                         <outlet property="completedSwitch" destination="H8S-Nj-uqQ" id="88P-OH-G6U"/>
-                        <outlet property="dueDateLabel" destination="c8o-79-Cu1" id="hc9-wh-4n1"/>
+                        <outlet property="completedSwitchLabel" destination="8eE-vM-Q4Y" id="je5-zc-SvT"/>
+                        <outlet property="dueDateDateLabel" destination="c8o-79-Cu1" id="OCf-nm-GFX"/>
+                        <outlet property="dueDateLabel" destination="pWa-42-EQy" id="xgq-Q5-9AY"/>
                         <outlet property="dueDatePicker" destination="Qub-GU-zqe" id="zSn-66-Tkn"/>
                         <outlet property="textTextView" destination="xZr-8g-209" id="lwo-tg-pg5"/>
                         <outlet property="titleTextField" destination="khb-Q6-Bfh" id="INC-Ut-r1b"/>
@@ -171,6 +180,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <tapGestureRecognizer id="U7x-Xa-GEa">
                     <connections>
                         <action selector="screenTapped" destination="orz-Lb-e1o" id="zRl-TZ-Rdy"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="bye-Jf-Uva">
+                    <connections>
+                        <action selector="editDueDate" destination="orz-Lb-e1o" id="jBe-l4-LEp"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

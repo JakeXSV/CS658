@@ -32,6 +32,17 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     // use this for segues
+    
+    UIView * headSeparator = [[UIView alloc] initWithFrame:CGRectMake(self.textTextView.frame.origin.x, self.textTextView.frame.origin.y, self.textTextView.frame.size.width, 1)];
+    headSeparator.backgroundColor = [UIColor colorWithWhite:0.7 alpha:1];
+    UIView * topSeparator = [[UIView alloc] initWithFrame:CGRectMake(self.completedSwitchLabel.frame.origin.x, self.completedSwitchLabel.frame.origin.y-15, self.textTextView.frame.size.width, 1)];
+    topSeparator.backgroundColor = [UIColor colorWithWhite:0.7 alpha:1];
+    UIView * botSeparator = [[UIView alloc] initWithFrame:CGRectMake(self.dueDateLabel.frame.origin.x, self.dueDateLabel.frame.origin.y+25, self.textTextView.frame.size.width, 1)];
+    botSeparator.backgroundColor = [UIColor colorWithWhite:0.7 alpha:1];
+    [self.view addSubview:headSeparator];
+    [self.view addSubview:topSeparator];
+    [self.view addSubview:botSeparator];
+    self.dueDateDateLabel.text = self.item.dueDateDateLabelText;
     self.navigationItem.title = self.item.title;
     self.titleTextField.text = self.item.title;
     if(self.item.text != nil){
@@ -40,6 +51,12 @@
     }
     if(self.item.isCompleted){
         self.completedSwitch.on = YES;
+    }
+    if([self.dueDateDateLabel.text isEqualToString:(@"None")]){
+        self.dueDatePicker.hidden = YES;
+    }else{
+        self.dueDatePicker.hidden = YES;
+        self.dueDateDateLabel.textColor = [UIColor blackColor];
     }
 }
 
@@ -75,6 +92,21 @@
 
 -(IBAction)screenTapped{
     [self.view endEditing:(YES)];
+}
+
+-(IBAction)dateHasBeenSet{
+    NSDateFormatter* fmt = [[NSDateFormatter alloc]init];
+    [fmt setDateFormat:(@"MMMM d 'at' h:mm a")];
+    self.item.dueDateDateLabelText = [fmt stringFromDate:(self.dueDatePicker.date)];
+    self.dueDateDateLabel.text = self.item.dueDateDateLabelText;
+    self.dueDateDateLabel.textColor = [UIColor blackColor];
+    self.dueDatePicker.hidden = YES;
+}
+
+-(IBAction)editDueDate{
+    if(self.dueDatePicker.hidden){
+        self.dueDatePicker.hidden = NO;
+    }
 }
 
 /*

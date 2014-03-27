@@ -111,6 +111,9 @@
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
+    TodoListItem* temp = [self.todoList objectAtIndex:(fromIndexPath.row)];
+    [self.todoList setObject:([self.todoList objectAtIndex:(toIndexPath.row)]) atIndexedSubscript:(fromIndexPath.row)];
+    [self.todoList setObject:(temp) atIndexedSubscript:(toIndexPath.row)];
 }
 
 

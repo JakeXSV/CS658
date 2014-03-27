@@ -14,6 +14,7 @@
 @property(nonatomic, strong) NSMutableString* text;
 @property(nonatomic, assign) BOOL isCompleted;
 @property(nonatomic, strong) NSDate* dueDate;
+@property(nonatomic, strong) NSString* dueDateDateLabelText;
 
 -(id)init;
 

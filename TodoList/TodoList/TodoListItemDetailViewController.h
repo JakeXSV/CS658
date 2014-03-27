@@ -4,7 +4,6 @@
 //
 //  Created by Jake on 3/18/14.
 //  Copyright (c) 2014 Jake. All rights reserved.
-//
 
 #import <UIKit/UIKit.h>
 @class TodoListItem;
@@ -16,8 +15,12 @@
 @property(nonatomic, weak) IBOutlet UISwitch* completedSwitch;
 @property(nonatomic, weak) IBOutlet UIDatePicker* dueDatePicker;
 @property(nonatomic, weak) IBOutlet UILabel* dueDateLabel;
+@property(nonatomic, weak) IBOutlet UILabel* dueDateDateLabel;
+@property(nonatomic, weak) IBOutlet UILabel* completedSwitchLabel;
 @property(nonatomic, weak) TodoListItem* item;
 
 -(IBAction)screenTapped;
+-(IBAction)dateHasBeenSet;
+-(IBAction)editDueDate;
 
 @end
