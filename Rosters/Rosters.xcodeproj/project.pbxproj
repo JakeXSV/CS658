@@ -1,0 +1,513 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		148D2D9818EA248C008FA693 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148D2D9718EA248C008FA693 /* Foundation.framework */; };
+		148D2D9A18EA248C008FA693 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148D2D9918EA248C008FA693 /* CoreGraphics.framework */; };
+		148D2D9C18EA248C008FA693 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148D2D9B18EA248C008FA693 /* UIKit.framework */; };
+		148D2DA218EA248C008FA693 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 148D2DA018EA248C008FA693 /* InfoPlist.strings */; };
+		148D2DA418EA248C008FA693 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 148D2DA318EA248C008FA693 /* main.m */; };
+		148D2DA818EA248C008FA693 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 148D2DA718EA248C008FA693 /* AppDelegate.m */; };
+		148D2DAB18EA248C008FA693 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 148D2DA918EA248C008FA693 /* Main.storyboard */; };
+		148D2DB018EA248C008FA693 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 148D2DAF18EA248C008FA693 /* Images.xcassets */; };
+		148D2DB718EA248C008FA693 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148D2DB618EA248C008FA693 /* XCTest.framework */; };
+		148D2DB818EA248C008FA693 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148D2D9718EA248C008FA693 /* Foundation.framework */; };
+		148D2DB918EA248C008FA693 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148D2D9B18EA248C008FA693 /* UIKit.framework */; };
+		148D2DC118EA248C008FA693 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 148D2DBF18EA248C008FA693 /* InfoPlist.strings */; };
+		148D2DC318EA248C008FA693 /* RostersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 148D2DC218EA248C008FA693 /* RostersTests.m */; };
+		148D2DCE18EA2513008FA693 /* RostersPositionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 148D2DCD18EA2513008FA693 /* RostersPositionTableViewController.m */; };
+		148D2DD518EA2BF0008FA693 /* RostersPlayersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 148D2DD418EA2BF0008FA693 /* RostersPlayersTableViewController.m */; };
+		148D2DD818EA2D4C008FA693 /* BaseballPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 148D2DD718EA2D4C008FA693 /* BaseballPlayer.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		148D2DBA18EA248C008FA693 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 148D2D8C18EA248B008FA693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 148D2D9318EA248C008FA693;
+			remoteInfo = Rosters;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		148D2D9418EA248C008FA693 /* Rosters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rosters.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		148D2D9718EA248C008FA693 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		148D2D9918EA248C008FA693 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		148D2D9B18EA248C008FA693 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		148D2D9F18EA248C008FA693 /* Rosters-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Rosters-Info.plist"; sourceTree = "<group>"; };
+		148D2DA118EA248C008FA693 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		148D2DA318EA248C008FA693 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		148D2DA518EA248C008FA693 /* Rosters-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Rosters-Prefix.pch"; sourceTree = "<group>"; };
+		148D2DA618EA248C008FA693 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		148D2DA718EA248C008FA693 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		148D2DAA18EA248C008FA693 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		148D2DAF18EA248C008FA693 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		148D2DB518EA248C008FA693 /* RostersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RostersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		148D2DB618EA248C008FA693 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		148D2DBE18EA248C008FA693 /* RostersTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RostersTests-Info.plist"; sourceTree = "<group>"; };
+		148D2DC018EA248C008FA693 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		148D2DC218EA248C008FA693 /* RostersTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RostersTests.m; sourceTree = "<group>"; };
+		148D2DCC18EA2513008FA693 /* RostersPositionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RostersPositionTableViewController.h; sourceTree = "<group>"; };
+		148D2DCD18EA2513008FA693 /* RostersPositionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RostersPositionTableViewController.m; sourceTree = "<group>"; };
+		148D2DD318EA2BF0008FA693 /* RostersPlayersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RostersPlayersTableViewController.h; sourceTree = "<group>"; };
+		148D2DD418EA2BF0008FA693 /* RostersPlayersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RostersPlayersTableViewController.m; sourceTree = "<group>"; };
+		148D2DD618EA2D4C008FA693 /* BaseballPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseballPlayer.h; sourceTree = "<group>"; };
+		148D2DD718EA2D4C008FA693 /* BaseballPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseballPlayer.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		148D2D9118EA248C008FA693 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				148D2D9A18EA248C008FA693 /* CoreGraphics.framework in Frameworks */,
+				148D2D9C18EA248C008FA693 /* UIKit.framework in Frameworks */,
+				148D2D9818EA248C008FA693 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		148D2DB218EA248C008FA693 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				148D2DB718EA248C008FA693 /* XCTest.framework in Frameworks */,
+				148D2DB918EA248C008FA693 /* UIKit.framework in Frameworks */,
+				148D2DB818EA248C008FA693 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		148D2D8B18EA248B008FA693 = {
+			isa = PBXGroup;
+			children = (
+				148D2D9D18EA248C008FA693 /* Rosters */,
+				148D2DBC18EA248C008FA693 /* RostersTests */,
+				148D2D9618EA248C008FA693 /* Frameworks */,
+				148D2D9518EA248C008FA693 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		148D2D9518EA248C008FA693 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				148D2D9418EA248C008FA693 /* Rosters.app */,
+				148D2DB518EA248C008FA693 /* RostersTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		148D2D9618EA248C008FA693 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				148D2D9718EA248C008FA693 /* Foundation.framework */,
+				148D2D9918EA248C008FA693 /* CoreGraphics.framework */,
+				148D2D9B18EA248C008FA693 /* UIKit.framework */,
+				148D2DB618EA248C008FA693 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		148D2D9D18EA248C008FA693 /* Rosters */ = {
+			isa = PBXGroup;
+			children = (
+				148D2DCF18EA2B7E008FA693 /* Models */,
+				148D2DD218EA2BB8008FA693 /* Views */,
+				148D2DD118EA2B9B008FA693 /* Controllers */,
+				148D2DA618EA248C008FA693 /* AppDelegate.h */,
+				148D2DA718EA248C008FA693 /* AppDelegate.m */,
+				148D2DAF18EA248C008FA693 /* Images.xcassets */,
+				148D2D9E18EA248C008FA693 /* Supporting Files */,
+			);
+			path = Rosters;
+			sourceTree = "<group>";
+		};
+		148D2D9E18EA248C008FA693 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				148D2D9F18EA248C008FA693 /* Rosters-Info.plist */,
+				148D2DA018EA248C008FA693 /* InfoPlist.strings */,
+				148D2DA318EA248C008FA693 /* main.m */,
+				148D2DA518EA248C008FA693 /* Rosters-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		148D2DBC18EA248C008FA693 /* RostersTests */ = {
+			isa = PBXGroup;
+			children = (
+				148D2DC218EA248C008FA693 /* RostersTests.m */,
+				148D2DBD18EA248C008FA693 /* Supporting Files */,
+			);
+			path = RostersTests;
+			sourceTree = "<group>";
+		};
+		148D2DBD18EA248C008FA693 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				148D2DBE18EA248C008FA693 /* RostersTests-Info.plist */,
+				148D2DBF18EA248C008FA693 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		148D2DCF18EA2B7E008FA693 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				148D2DD618EA2D4C008FA693 /* BaseballPlayer.h */,
+				148D2DD718EA2D4C008FA693 /* BaseballPlayer.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		148D2DD118EA2B9B008FA693 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				148D2DCC18EA2513008FA693 /* RostersPositionTableViewController.h */,
+				148D2DCD18EA2513008FA693 /* RostersPositionTableViewController.m */,
+				148D2DD318EA2BF0008FA693 /* RostersPlayersTableViewController.h */,
+				148D2DD418EA2BF0008FA693 /* RostersPlayersTableViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		148D2DD218EA2BB8008FA693 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				148D2DA918EA248C008FA693 /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		148D2D9318EA248C008FA693 /* Rosters */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 148D2DC618EA248C008FA693 /* Build configuration list for PBXNativeTarget "Rosters" */;
+			buildPhases = (
+				148D2D9018EA248C008FA693 /* Sources */,
+				148D2D9118EA248C008FA693 /* Frameworks */,
+				148D2D9218EA248C008FA693 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Rosters;
+			productName = Rosters;
+			productReference = 148D2D9418EA248C008FA693 /* Rosters.app */;
+			productType = "com.apple.product-type.application";
+		};
+		148D2DB418EA248C008FA693 /* RostersTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 148D2DC918EA248C008FA693 /* Build configuration list for PBXNativeTarget "RostersTests" */;
+			buildPhases = (
+				148D2DB118EA248C008FA693 /* Sources */,
+				148D2DB218EA248C008FA693 /* Frameworks */,
+				148D2DB318EA248C008FA693 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				148D2DBB18EA248C008FA693 /* PBXTargetDependency */,
+			);
+			name = RostersTests;
+			productName = RostersTests;
+			productReference = 148D2DB518EA248C008FA693 /* RostersTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		148D2D8C18EA248B008FA693 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = Jake;
+				TargetAttributes = {
+					148D2DB418EA248C008FA693 = {
+						TestTargetID = 148D2D9318EA248C008FA693;
+					};
+				};
+			};
+			buildConfigurationList = 148D2D8F18EA248B008FA693 /* Build configuration list for PBXProject "Rosters" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 148D2D8B18EA248B008FA693;
+			productRefGroup = 148D2D9518EA248C008FA693 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				148D2D9318EA248C008FA693 /* Rosters */,
+				148D2DB418EA248C008FA693 /* RostersTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		148D2D9218EA248C008FA693 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				148D2DB018EA248C008FA693 /* Images.xcassets in Resources */,
+				148D2DA218EA248C008FA693 /* InfoPlist.strings in Resources */,
+				148D2DAB18EA248C008FA693 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		148D2DB318EA248C008FA693 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				148D2DC118EA248C008FA693 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		148D2D9018EA248C008FA693 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				148D2DD818EA2D4C008FA693 /* BaseballPlayer.m in Sources */,
+				148D2DA818EA248C008FA693 /* AppDelegate.m in Sources */,
+				148D2DA418EA248C008FA693 /* main.m in Sources */,
+				148D2DCE18EA2513008FA693 /* RostersPositionTableViewController.m in Sources */,
+				148D2DD518EA2BF0008FA693 /* RostersPlayersTableViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		148D2DB118EA248C008FA693 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				148D2DC318EA248C008FA693 /* RostersTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		148D2DBB18EA248C008FA693 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 148D2D9318EA248C008FA693 /* Rosters */;
+			targetProxy = 148D2DBA18EA248C008FA693 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		148D2DA018EA248C008FA693 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				148D2DA118EA248C008FA693 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		148D2DA918EA248C008FA693 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				148D2DAA18EA248C008FA693 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		148D2DBF18EA248C008FA693 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				148D2DC018EA248C008FA693 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		148D2DC418EA248C008FA693 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		148D2DC518EA248C008FA693 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		148D2DC718EA248C008FA693 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Rosters/Rosters-Prefix.pch";
+				INFOPLIST_FILE = "Rosters/Rosters-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		148D2DC818EA248C008FA693 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Rosters/Rosters-Prefix.pch";
+				INFOPLIST_FILE = "Rosters/Rosters-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		148D2DCA18EA248C008FA693 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Rosters.app/Rosters";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Rosters/Rosters-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "RostersTests/RostersTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		148D2DCB18EA248C008FA693 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Rosters.app/Rosters";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Rosters/Rosters-Prefix.pch";
+				INFOPLIST_FILE = "RostersTests/RostersTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		148D2D8F18EA248B008FA693 /* Build configuration list for PBXProject "Rosters" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				148D2DC418EA248C008FA693 /* Debug */,
+				148D2DC518EA248C008FA693 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		148D2DC618EA248C008FA693 /* Build configuration list for PBXNativeTarget "Rosters" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				148D2DC718EA248C008FA693 /* Debug */,
+				148D2DC818EA248C008FA693 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		148D2DC918EA248C008FA693 /* Build configuration list for PBXNativeTarget "RostersTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				148D2DCA18EA248C008FA693 /* Debug */,
+				148D2DCB18EA248C008FA693 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 148D2D8C18EA248B008FA693 /* Project object */;
+}

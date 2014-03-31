@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>84000283-1511-487F-8AFD-D6623356488F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Rosters</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DE720029-DF20-4F79-8459-AB48BD24FCCB</key>
+		<string>https://github.com/Jakehp/CS658.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Rosters/Rosters.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DE720029-DF20-4F79-8459-AB48BD24FCCB</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Jakehp/CS658.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DE720029-DF20-4F79-8459-AB48BD24FCCB</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DE720029-DF20-4F79-8459-AB48BD24FCCB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CS658</string>
+		</dict>
+	</array>
+</dict>
+</plist>
