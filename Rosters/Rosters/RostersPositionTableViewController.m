@@ -1,8 +1,6 @@
 //
 //  RostersPositionTableViewController.m
 //  Rosters
-//  48 MINUTES
-//  http://www.youtube.com/watch?v=OjDdPfSULB4&feature=youtu.be
 //  Created by Jake on 3/31/14.
 //  Copyright (c) 2014 Jake. All rights reserved.
 //
@@ -77,11 +75,11 @@
     // Pitchers
     [self.pitcher addObject:([self baseballPlayerGenerator:(@"Yovani,Gallardo,Pitcher")])];
     [self.pitcher addObject:([self baseballPlayerGenerator:(@"Matt,Garza,Pitcher")])];
-    [self.pitcher addObject:([self baseballPlayerGenerator:(@"Jim,Gallardo,Pitcher")])];
+    [self.pitcher addObject:([self baseballPlayerGenerator:(@"Jim,Hendersen,Pitcher")])];
     
     // Catchers
-    [self.pitcher addObject:([self baseballPlayerGenerator:(@"Jonathan,Lucray,Catcher")])];
-    [self.pitcher addObject:([self baseballPlayerGenerator:(@"Martin,Maldonaldo,Catcher")])];
+    [self.catcher addObject:([self baseballPlayerGenerator:(@"Jonathan,Lucray,Catcher")])];
+    [self.catcher addObject:([self baseballPlayerGenerator:(@"Martin,Maldonaldo,Catcher")])];
 }
 
 -(BaseballPlayer*)baseballPlayerGenerator:(NSString*)data{
