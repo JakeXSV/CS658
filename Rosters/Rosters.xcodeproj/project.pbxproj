@@ -24,7 +24,7 @@
 		148D2DD518EA2BF0008FA693 /* RostersPlayersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 148D2DD418EA2BF0008FA693 /* RostersPlayersTableViewController.m */; };
 		148D2DD818EA2D4C008FA693 /* BaseballPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 148D2DD718EA2D4C008FA693 /* BaseballPlayer.m */; };
 		2312632318EA5EA20047224A /* RostersPlayerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2312632218EA5EA20047224A /* RostersPlayerDetailViewController.m */; };
-		2312632618EA63F80047224A /* RostersEditPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2312632518EA63F80047224A /* RostersEditPlayerViewController.m */; };
+		2312632618EA63F80047224A /* RostersAddEditPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2312632518EA63F80047224A /* RostersAddEditPlayerViewController.m */; };
 		2312632918EA6C160047224A /* RostersPlayerWebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2312632818EA6C160047224A /* RostersPlayerWebViewViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -64,8 +64,8 @@
 		148D2DD718EA2D4C008FA693 /* BaseballPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseballPlayer.m; sourceTree = "<group>"; };
 		2312632118EA5EA20047224A /* RostersPlayerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RostersPlayerDetailViewController.h; sourceTree = "<group>"; };
 		2312632218EA5EA20047224A /* RostersPlayerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RostersPlayerDetailViewController.m; sourceTree = "<group>"; };
-		2312632418EA63F80047224A /* RostersEditPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RostersEditPlayerViewController.h; sourceTree = "<group>"; };
-		2312632518EA63F80047224A /* RostersEditPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RostersEditPlayerViewController.m; sourceTree = "<group>"; };
+		2312632418EA63F80047224A /* RostersAddEditPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RostersAddEditPlayerViewController.h; sourceTree = "<group>"; };
+		2312632518EA63F80047224A /* RostersAddEditPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RostersAddEditPlayerViewController.m; sourceTree = "<group>"; };
 		2312632718EA6C160047224A /* RostersPlayerWebViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RostersPlayerWebViewViewController.h; sourceTree = "<group>"; };
 		2312632818EA6C160047224A /* RostersPlayerWebViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RostersPlayerWebViewViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,8 +185,8 @@
 				148D2DD418EA2BF0008FA693 /* RostersPlayersTableViewController.m */,
 				2312632118EA5EA20047224A /* RostersPlayerDetailViewController.h */,
 				2312632218EA5EA20047224A /* RostersPlayerDetailViewController.m */,
-				2312632418EA63F80047224A /* RostersEditPlayerViewController.h */,
-				2312632518EA63F80047224A /* RostersEditPlayerViewController.m */,
+				2312632418EA63F80047224A /* RostersAddEditPlayerViewController.h */,
+				2312632518EA63F80047224A /* RostersAddEditPlayerViewController.m */,
 				2312632718EA6C160047224A /* RostersPlayerWebViewViewController.h */,
 				2312632818EA6C160047224A /* RostersPlayerWebViewViewController.m */,
 			);
@@ -298,7 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2312632618EA63F80047224A /* RostersEditPlayerViewController.m in Sources */,
+				2312632618EA63F80047224A /* RostersAddEditPlayerViewController.m in Sources */,
 				148D2DD818EA2D4C008FA693 /* BaseballPlayer.m in Sources */,
 				2312632318EA5EA20047224A /* RostersPlayerDetailViewController.m in Sources */,
 				148D2DA818EA248C008FA693 /* AppDelegate.m in Sources */,

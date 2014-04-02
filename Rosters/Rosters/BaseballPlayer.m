@@ -11,7 +11,7 @@
 @implementation BaseballPlayer
 
 -(id)init{
-    return [self initWithFirstName:(@"New") lastName:(@"Name") position:(@"")];
+    return [self initWithFirstName:(@"") lastName:(@"") position:(@"")];
 }
 
 //designated initializer

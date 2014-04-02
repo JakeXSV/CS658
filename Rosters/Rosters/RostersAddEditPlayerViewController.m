@@ -6,14 +6,14 @@
 //  Copyright (c) 2014 Jake. All rights reserved.
 //
 
-#import "RostersEditPlayerViewController.h"
+#import "RostersAddEditPlayerViewController.h"
 #import "RostersPlayerWebViewViewController.h"
 
-@interface RostersEditPlayerViewController ()
+@interface RostersAddEditPlayerViewController ()
 @property(nonatomic, assign) BOOL isSlidUp;
 @end
 
-@implementation RostersEditPlayerViewController
+@implementation RostersAddEditPlayerViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

@@ -33,7 +33,9 @@
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIBarButtonItem *btnRefresh = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(manuallyCallSegueToPlayerAddEdit)];
+    
+    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:btnRefresh, self.editButtonItem, nil]];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -44,6 +46,10 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)manuallyCallSegueToPlayerAddEdit{
+    [self performSegueWithIdentifier:@"toPlayerAddEdit" sender:self];
 }
 
 #pragma mark - Table view data source
@@ -115,6 +121,9 @@
         
         dest.player = [self.players objectAtIndex:([self.tableView indexPathForSelectedRow].row)];
         dest.navigationItem.title = cell.textLabel.text;
+    }
+    if([segue.identifier isEqualToString:(@"toPlayerAddEdit")]){
+        NSLog(@"WOAH WOAH WOAH!");
     }
 }
 
