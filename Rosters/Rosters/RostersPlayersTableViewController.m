@@ -123,8 +123,20 @@
         dest.navigationItem.title = cell.textLabel.text;
     }
     if([segue.identifier isEqualToString:(@"toPlayerAddEdit")]){
-        NSLog(@"WOAH WOAH WOAH!");
+        RostersAddEditPlayerViewController* dest = segue.destinationViewController;
+        dest.delegate = self;
     }
 }
+
+#pragma mark - delegate stuff
+
+-(void)cancelAddPlayer{
+    [self.navigationController popViewControllerAnimated:(YES)];
+}
+-(void)doneAddPlayer:(BaseballPlayer*)player{
+    [self.players addObject:(player)];
+    [self.navigationController popViewControllerAnimated:(YES)];
+}
+
 
 @end

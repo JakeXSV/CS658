@@ -316,7 +316,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uUq-fk-9fL">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="65" width="320" height="503"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
@@ -410,7 +410,7 @@
                                 <action selector="cancelPlayerEditing" destination="ikR-H3-oNU" id="IVu-9C-X3m"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="8be-h9-jqh">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="8be-h9-jqh">
                             <connections>
                                 <action selector="savePlayerEditing" destination="ikR-H3-oNU" id="Nwm-8e-PAy"/>
                             </connections>

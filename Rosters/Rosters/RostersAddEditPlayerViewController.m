@@ -50,11 +50,21 @@
     self.player.firstName   = self.firstNameTextField.text;
     self.player.lastName    = self.lastNameTextField.text;
     self.player.url         = self.urlTextField.text;
-    [self.navigationController popViewControllerAnimated:(YES)];
+    if([self.delegate respondsToSelector:@selector(doneAddPlayer:)]){
+        BaseballPlayer* noob = [[BaseballPlayer alloc]initWithFirstName:(self.firstNameTextField.text) lastName:(self.lastNameTextField.text) position:(self.positionLabel.text)];
+        noob.url = self.urlTextField.text;
+        [self.delegate doneAddPlayer:(noob)];
+    }else{
+        [self.navigationController popViewControllerAnimated:(YES)];
+    }
 }
 
 -(IBAction)cancelPlayerEditing{
-    [self.navigationController popViewControllerAnimated:(YES)];
+    if([self.delegate respondsToSelector:@selector(cancelAddPlayer)]){
+        [self.delegate cancelAddPlayer];
+    }else{
+        [self.navigationController popViewControllerAnimated:(YES)];
+    }
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField

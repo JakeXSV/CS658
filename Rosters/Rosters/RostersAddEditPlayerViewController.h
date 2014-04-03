@@ -9,6 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "BaseballPlayer.h"
 
+@protocol RostersAddPlayerDelegate <NSObject>
+
+-(void)cancelAddPlayer;
+-(void)doneAddPlayer:(BaseballPlayer*)player;
+
+@end
+
 @interface RostersAddEditPlayerViewController : UIViewController<UITextFieldDelegate>
 
 @property(nonatomic, weak) IBOutlet UITextField* firstNameTextField;
@@ -16,6 +23,7 @@
 @property(nonatomic, weak) IBOutlet UITextField* urlTextField;
 @property(nonatomic, weak) IBOutlet UILabel* positionLabel;
 @property(nonatomic, weak) BaseballPlayer* player;
+@property(nonatomic, weak) id<RostersAddPlayerDelegate> delegate;
 
 -(IBAction)savePlayerEditing;
 -(IBAction)cancelPlayerEditing;
