@@ -7,8 +7,6 @@
 //
 
 #import "RostersPlayersTableViewController.h"
-#import "RostersPlayerDetailViewController.h"
-#import "BaseballPlayer.h"
 
 @interface RostersPlayersTableViewController ()
 
@@ -125,6 +123,8 @@
     if([segue.identifier isEqualToString:(@"toPlayerAddEdit")]){
         RostersAddEditPlayerViewController* dest = segue.destinationViewController;
         dest.delegate = self;
+        self.toBeAddedPlayer = [[BaseballPlayer alloc]init];
+        dest.player = self.toBeAddedPlayer;
     }
 }
 
@@ -133,8 +133,8 @@
 -(void)cancelAddPlayer{
     [self.navigationController popViewControllerAnimated:(YES)];
 }
--(void)doneAddPlayer:(BaseballPlayer*)player{
-    [self.players addObject:(player)];
+-(void)doneAddPlayer{
+    [self.players addObject:(self.toBeAddedPlayer)];
     [self.navigationController popViewControllerAnimated:(YES)];
 }
 

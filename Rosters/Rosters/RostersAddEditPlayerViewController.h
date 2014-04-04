@@ -8,12 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseballPlayer.h"
+#import "RostersPlayerWebViewViewController.h"
 
 @protocol RostersAddPlayerDelegate <NSObject>
-
 -(void)cancelAddPlayer;
--(void)doneAddPlayer:(BaseballPlayer*)player;
-
+-(void)doneAddPlayer;
 @end
 
 @interface RostersAddEditPlayerViewController : UIViewController<UITextFieldDelegate>

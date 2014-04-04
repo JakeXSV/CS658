@@ -7,7 +7,6 @@
 //
 
 #import "RostersAddEditPlayerViewController.h"
-#import "RostersPlayerWebViewViewController.h"
 
 @interface RostersAddEditPlayerViewController ()
 @property(nonatomic, assign) BOOL isSlidUp;
@@ -50,10 +49,10 @@
     self.player.firstName   = self.firstNameTextField.text;
     self.player.lastName    = self.lastNameTextField.text;
     self.player.url         = self.urlTextField.text;
-    if([self.delegate respondsToSelector:@selector(doneAddPlayer:)]){
+    if([self.delegate respondsToSelector:@selector(doneAddPlayer)]){
         BaseballPlayer* noob = [[BaseballPlayer alloc]initWithFirstName:(self.firstNameTextField.text) lastName:(self.lastNameTextField.text) position:(self.positionLabel.text)];
         noob.url = self.urlTextField.text;
-        [self.delegate doneAddPlayer:(noob)];
+        [self.delegate doneAddPlayer];
     }else{
         [self.navigationController popViewControllerAnimated:(YES)];
     }
