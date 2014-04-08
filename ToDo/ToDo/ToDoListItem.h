@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ToDoListItem : NSObject
+@interface ToDoListItem : NSObject<NSCoding>
 
 @property(nonatomic, strong) NSMutableString* title;
 @property(nonatomic, strong) NSMutableString* text;
@@ -16,5 +16,6 @@
 @property(nonatomic, strong) NSDate* dueDate;
 
 -(id)init;
-
+-(id)initWithCoder:(NSCoder *)aDecoder;
+-(void)encodeWithCoder:(NSCoder *)aCoder;
 @end

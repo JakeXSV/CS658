@@ -10,6 +10,7 @@
 #import "ToDoListItem.h"
 #import "ToDoListItemDetailViewController.h"
 #import "ToDoListItemTableViewCell.h"
+#import "TodoListSettingsTableViewController.h"
 
 @interface ToDoListViewController ()
 @property(nonatomic, strong) NSMutableArray* toDoList;
@@ -30,13 +31,21 @@
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
     self.clearsSelectionOnViewWillAppear = NO;
     
-    self.toDoList = [[NSMutableArray alloc] init];
+    self.toDoList = [NSKeyedUnarchiver unarchiveObjectWithFile:([self getArchivePath])];
+    if(!self.toDoList){
+        self.toDoList = [[NSMutableArray alloc]init];
+    }
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    
+    self.deleteOnComplete = [NSMutableString stringWithString:([[NSUserDefaults standardUserDefaults] objectForKey:(DeleteOnCompleteKey)])];
+    
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIBarButtonItem* settingsButton = [[UIBarButtonItem alloc] initWithTitle:(@"Settings") style:(UIBarButtonItemStyleBordered) target:(self) action:@selector(showSettings)];
+    self.toolbarItems = @[settingsButton];
+    self.navigationController.toolbarHidden = NO;
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -44,10 +53,35 @@
     [self.tableView reloadData];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    //if deleteOnComplete, delete
+    if([self.deleteOnComplete isEqualToString:(@"YES")]){
+        ToDoListItem* item;
+        for(int i=0; i<self.toDoList.count; ++i) {
+            item = [self.toDoList objectAtIndex:i];
+            if(item.isCompleted) {
+                [self.toDoList removeObject:item];
+                --i;
+            }
+        }
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(NSString*)getArchivePath{
+    NSArray* docDirArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString* docDir = [docDirArray objectAtIndex:0];
+    NSString* archPath = [docDir stringByAppendingPathComponent:@"todoData.archive"];
+    return archPath;
+}
+
+-(BOOL)saveChanges{
+    return [NSKeyedArchiver archiveRootObject:(self.toDoList) toFile:([self getArchivePath])];
 }
 
 -(IBAction)addToDoListItem
@@ -60,6 +94,10 @@
     
     // Update the tableview with cool animations
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+}
+
+-(void)showSettings{
+    [self performSegueWithIdentifier:(@"ShowSettingsSegue") sender:(self)];
 }
 
 #pragma mark - Table view data source
@@ -102,6 +140,10 @@
         ToDoListItem* item;
         item = [self.toDoList objectAtIndex:indexPath.row];
         dest.item = item;
+    }
+    if([segue.identifier isEqualToString:@"ShowSettingsSegue"]) {
+        TodoListSettingsTableViewController* dest = [segue destinationViewController];
+        dest.deleteOnComplete = self.deleteOnComplete;
     }
 }
 

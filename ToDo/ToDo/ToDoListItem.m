@@ -20,4 +20,22 @@
     return self;
 }
 
+-(id)initWithCoder:(NSCoder *)aDecoder{
+    self = [super init];
+    if(self) {
+        _title = [aDecoder decodeObjectForKey:(@"title")];
+        _text = [aDecoder decodeObjectForKey:(@"text")];
+        _dueDate = [aDecoder decodeObjectForKey:(@"dueDate")];
+        _isCompleted = [aDecoder decodeBoolForKey:(@"isCompleted")];
+    }
+    return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder{
+    [aCoder encodeObject:self.title forKey:@"title"];
+    [aCoder encodeObject:self.text forKey:@"text"];
+    [aCoder encodeObject:self.dueDate forKey:@"dueDate"];
+    [aCoder encodeBool:self.isCompleted forKey:@"isCompleted"];
+}
+
 @end

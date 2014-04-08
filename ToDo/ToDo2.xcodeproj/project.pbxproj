@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23912D5318EF1E3200C39849 /* TodoListSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23912D5218EF1E3200C39849 /* TodoListSettingsTableViewController.m */; };
 		94F35DD918CA082E00143F57 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F35DD818CA082E00143F57 /* Foundation.framework */; };
 		94F35DDB18CA082E00143F57 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F35DDA18CA082E00143F57 /* CoreGraphics.framework */; };
 		94F35DDD18CA082E00143F57 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F35DDC18CA082E00143F57 /* UIKit.framework */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		23912D5118EF1E3200C39849 /* TodoListSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoListSettingsTableViewController.h; sourceTree = "<group>"; };
+		23912D5218EF1E3200C39849 /* TodoListSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoListSettingsTableViewController.m; sourceTree = "<group>"; };
 		94F35DD518CA082E00143F57 /* ToDo2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDo2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F35DD818CA082E00143F57 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		94F35DDA18CA082E00143F57 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -88,6 +91,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		23912D5418EF1F6700C39849 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				94F35E0D18CA08AF00143F57 /* ToDoListViewController.h */,
+				94F35E0E18CA08AF00143F57 /* ToDoListViewController.m */,
+				94F35E1618CA7A3000143F57 /* ToDoListItemTableViewCell.h */,
+				94F35E1718CA7A3000143F57 /* ToDoListItemTableViewCell.m */,
+				94F35E1318CA11D200143F57 /* ToDoListItemDetailViewController.h */,
+				94F35E1418CA11D200143F57 /* ToDoListItemDetailViewController.m */,
+				23912D5118EF1E3200C39849 /* TodoListSettingsTableViewController.h */,
+				23912D5218EF1E3200C39849 /* TodoListSettingsTableViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		23912D5518EF1F6F00C39849 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				94F35DEA18CA082E00143F57 /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		23912D5618EF1F8700C39849 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				94F35E1018CA0F1900143F57 /* ToDoListItem.h */,
+				94F35E1118CA0F1900143F57 /* ToDoListItem.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		94F35DCC18CA082E00143F57 = {
 			isa = PBXGroup;
 			children = (
@@ -121,19 +156,13 @@
 		94F35DDE18CA082E00143F57 /* ToDo2 */ = {
 			isa = PBXGroup;
 			children = (
+				23912D5618EF1F8700C39849 /* Model */,
+				23912D5518EF1F6F00C39849 /* Views */,
+				23912D5418EF1F6700C39849 /* Controllers */,
 				94F35DE718CA082E00143F57 /* AppDelegate.h */,
 				94F35DE818CA082E00143F57 /* AppDelegate.m */,
-				94F35DEA18CA082E00143F57 /* Main.storyboard */,
 				94F35DF018CA082E00143F57 /* Images.xcassets */,
 				94F35DDF18CA082E00143F57 /* Supporting Files */,
-				94F35E0D18CA08AF00143F57 /* ToDoListViewController.h */,
-				94F35E0E18CA08AF00143F57 /* ToDoListViewController.m */,
-				94F35E1018CA0F1900143F57 /* ToDoListItem.h */,
-				94F35E1118CA0F1900143F57 /* ToDoListItem.m */,
-				94F35E1318CA11D200143F57 /* ToDoListItemDetailViewController.h */,
-				94F35E1418CA11D200143F57 /* ToDoListItemDetailViewController.m */,
-				94F35E1618CA7A3000143F57 /* ToDoListItemTableViewCell.h */,
-				94F35E1718CA7A3000143F57 /* ToDoListItemTableViewCell.m */,
 			);
 			name = ToDo2;
 			path = ToDo;
@@ -272,6 +301,7 @@
 				94F35E1818CA7A3100143F57 /* ToDoListItemTableViewCell.m in Sources */,
 				94F35E1218CA0F1900143F57 /* ToDoListItem.m in Sources */,
 				94F35E0F18CA08AF00143F57 /* ToDoListViewController.m in Sources */,
+				23912D5318EF1E3200C39849 /* TodoListSettingsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

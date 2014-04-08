@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#define DeleteOnCompleteKey @"DeleteOnCompleteKey"
 
 @interface ToDoListViewController : UITableViewController
 
+@property(nonatomic, strong) NSMutableString* deleteOnComplete;
+
 -(IBAction)addToDoListItem;
+-(void)showSettings;
+-(BOOL)saveChanges;
 
 @end
