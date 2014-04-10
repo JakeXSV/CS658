@@ -11,5 +11,6 @@
 @interface RostersPositionTableViewController : UITableViewController
 
 @property(nonatomic, strong) NSArray* allPositions;
+-(BOOL)saveChanges;
 
 @end

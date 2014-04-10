@@ -35,6 +35,16 @@
     self.firstNameLabel.text = self.player.firstName;
     self.lastNameLabel.text = self.player.lastName;
     self.positionLabel.text = self.player.position;
+
+    if(self.player.headURL != nil && ![self.player.headURL isEqualToString:(@"")] && ![self.player.headURL isEqualToString:(@"http://sports.cbsimg.net/images/players/unknown_hat.gif")]){
+        NSURL* url = [NSURL URLWithString:(self.player.headURL)];
+        NSURLRequest* request = [[NSURLRequest alloc] initWithURL:(url)];
+        [self.headShotView loadRequest:(request)];
+    }else{
+        NSURL* url = [NSURL URLWithString:(@"http://sports.cbsimg.net/images/players/unknown_hat.gif")];
+        NSURLRequest* request = [[NSURLRequest alloc] initWithURL:(url)];
+        [self.headShotView loadRequest:(request)];
+    }
     if(self.player.url == nil || [self.player.url isEqualToString:@""]){
         self.moreInfoButton.enabled = NO;
     }else{

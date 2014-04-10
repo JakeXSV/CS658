@@ -20,6 +20,7 @@
 @property(nonatomic, weak) IBOutlet UITextField* firstNameTextField;
 @property(nonatomic, weak) IBOutlet UITextField* lastNameTextField;
 @property(nonatomic, weak) IBOutlet UITextField* urlTextField;
+@property(nonatomic, weak) IBOutlet UITextField* headUrlTextField;
 @property(nonatomic, weak) IBOutlet UILabel* positionLabel;
 @property(nonatomic, weak) BaseballPlayer* player;
 @property(nonatomic, weak) id<RostersAddPlayerDelegate> delegate;

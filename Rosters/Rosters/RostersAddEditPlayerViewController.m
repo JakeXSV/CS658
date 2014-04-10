@@ -49,6 +49,7 @@
     self.player.firstName   = self.firstNameTextField.text;
     self.player.lastName    = self.lastNameTextField.text;
     self.player.url         = self.urlTextField.text;
+    self.player.headURL     = self.headUrlTextField.text;
     if([self.delegate respondsToSelector:@selector(doneAddPlayer)]){
         BaseballPlayer* noob = [[BaseballPlayer alloc]initWithFirstName:(self.firstNameTextField.text) lastName:(self.lastNameTextField.text) position:(self.positionLabel.text)];
         noob.url = self.urlTextField.text;

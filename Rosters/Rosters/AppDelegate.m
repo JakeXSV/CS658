@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+#import "RostersPositionTableViewController.h"
 
 @implementation AppDelegate
 
@@ -32,6 +33,9 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    UINavigationController* root = (UINavigationController*) self.window.rootViewController;
+    RostersPositionTableViewController* core = root.viewControllers[0];
+    [core saveChanges];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

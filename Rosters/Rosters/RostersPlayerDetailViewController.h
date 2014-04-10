@@ -16,5 +16,6 @@
 @property(nonatomic, weak) IBOutlet UILabel* positionLabel;
 @property(nonatomic, weak) IBOutlet UIButton* moreInfoButton;
 @property(nonatomic, strong) BaseballPlayer* player;
+@property(nonatomic, weak) IBOutlet UIWebView* headShotView;
 
 @end
