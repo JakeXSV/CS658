@@ -1,23 +1,35 @@
 //
 //  BrewersPlayer.h
-//  Brewers
+//  brewers
 //
-//  Created by Ryan Hardt on 3/17/14.
+//  Created by Jake on 4/13/14.
 //  Copyright (c) 2014 Ryan Hardt. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface BrewersPlayer : NSObject<NSCoding>
+typedef enum{
+    NONE,
+    PITCHER,
+    CATCHER,
+    FIRST_BASE,
+    SECOND_BASE,
+    THIRD_BASE,
+    SHORTSTOP,
+    LEFT_FIELD,
+    CENTER_FIELD,
+    RIGHT_FIELD
+} Position;
 
-@property(nonatomic, strong) NSString* firstName;
-@property(nonatomic, strong) NSString* lastName;
-@property(nonatomic, strong) NSString* position;
-@property(nonatomic, strong) NSString* infoUrl;
-@property(nonatomic, strong) NSString* headshotUrl;
+@interface BrewersPlayer : NSManagedObject
 
--(id)init;
--(id)initWithFirstName:(NSString*)firstName lastName:(NSString*)lastName position:(NSString*)position;
+@property (nonatomic, retain) NSString * firstName;
+@property (nonatomic, retain) NSString * lastName;
+@property (nonatomic, retain) NSString * infoUrl;
+@property (nonatomic, retain) NSString * headshotUrl;
+@property (nonatomic, retain) NSNumber * position;
 -(NSString*)fullName;
+-(NSString*)nameForPosition:(Position)position;
 
 @end

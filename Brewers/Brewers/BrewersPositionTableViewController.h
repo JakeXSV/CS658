@@ -10,6 +10,5 @@
 
 @interface BrewersPositionTableViewController : UITableViewController
 
--(BOOL)saveChanges;
 
 @end

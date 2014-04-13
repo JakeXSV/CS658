@@ -10,6 +10,7 @@
 #import "BrewersPlayer.h"
 #import "BrewersPlayerDetailViewController.h"
 #import "BrewersAddEditPlayerViewController.h"
+#import "AppDelegate.h"
 
 @interface BrewersPlayersTableViewController ()
 
@@ -62,7 +63,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.positionPlayers.count;
+    return self.players.count;
 }
 
 
@@ -71,7 +72,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlayerCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = [[self.positionPlayers objectAtIndex:indexPath.row] fullName];
+    cell.textLabel.text = [[self.players objectAtIndex:indexPath.row] fullName];
     
     return cell;
 }
@@ -90,8 +91,13 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [self.positionPlayers removeObjectAtIndex:indexPath.row];
+        BrewersPlayer* playerTBD = [self.players objectAtIndex:indexPath.row];
+        [self.players removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        AppDelegate* appDelegate = [[UIApplication sharedApplication]delegate];
+        NSManagedObjectContext* moc = [appDelegate managedObjectContext];
+        [moc deleteObject:playerTBD];
         
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -102,9 +108,9 @@
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
-    BrewersPlayer* player = [self.positionPlayers objectAtIndex:fromIndexPath.row];
-    [self.positionPlayers removeObjectAtIndex:fromIndexPath.row];
-    [self.positionPlayers insertObject:player atIndex:toIndexPath.row];
+    BrewersPlayer* player = [self.players objectAtIndex:fromIndexPath.row];
+    [self.players removeObjectAtIndex:fromIndexPath.row];
+    [self.players insertObject:player atIndex:toIndexPath.row];
 }
 
 
@@ -112,7 +118,7 @@
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the item to be re-orderable.
-    return YES;
+    return NO;
 }
 
 
@@ -126,33 +132,47 @@
     if([segue.identifier isEqualToString:@"showPlayerDetailSegue"]) {
         BrewersPlayerDetailViewController* dest = [segue destinationViewController];
         UITableViewCell* cell = (UITableViewCell*)sender;
-        dest.player = [self.positionPlayers objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        dest.player = [self.players objectAtIndex:[self.tableView indexPathForSelectedRow].row];
         dest.navigationItem.title = cell.textLabel.text;
     }
     else if([segue.identifier isEqualToString:@"addPlayerSegue"]) {
         BrewersAddEditPlayerViewController* dest = [segue destinationViewController];
         dest.navigationItem.title = @"Add Player";
         dest.player = self.tempPlayer;
+        dest.isAdd = [NSNumber numberWithBool:(YES)];
         dest.delegate = self;
     }
 }
  -(void)addPlayer
  {
-     self.tempPlayer = [[BrewersPlayer alloc] init];
-     self.tempPlayer.position = self.navigationItem.title;
+     AppDelegate* appDelegate = [[UIApplication sharedApplication]delegate];
+     NSManagedObjectContext* moc = [appDelegate managedObjectContext];
+     self.tempPlayer = [NSEntityDescription insertNewObjectForEntityForName:@"BrewersPlayer" inManagedObjectContext:moc];
+     self.tempPlayer.position = [NSNumber numberWithInt:self.position];
  
      [self performSegueWithIdentifier:@"addPlayerSegue" sender:self];
  }
  
- #pragma mark - BrewersAddEditPlayerViewController
+ #pragma mark - BrewersAddPlayerViewController
  
  -(void)doneAddPlayer
  {
-     [self.positionPlayers insertObject:self.tempPlayer atIndex:0];
+     for(int i=0;i<self.players.count;i++) {
+         BrewersPlayer* player = [self.players objectAtIndex:i];
+         if([player.lastName compare:self.tempPlayer.lastName] == NSOrderedDescending){
+             [self.players insertObject:self.tempPlayer atIndex:i];
+             return;
+         }
+     }
+     //only called if player should be last
+     [self.players addObject:self.tempPlayer];
  }
  
  -(void)cancelAddPlayer
  {
+     AppDelegate* appDelegate = [[UIApplication sharedApplication]delegate];
+     NSManagedObjectContext* moc = [appDelegate managedObjectContext];
+     [moc deleteObject:self.tempPlayer];
      self.tempPlayer = nil;
  }
 

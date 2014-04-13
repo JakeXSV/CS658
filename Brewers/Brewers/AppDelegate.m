@@ -4,13 +4,19 @@
 //
 //  Created by Ryan Hardt on 3/17/14.
 //  Copyright (c) 2014 Ryan Hardt. All rights reserved.
-//
+//  53:10 http://www.youtube.com/watch?v=2J95P-okVZc&feature=youtu.be
+// 57:20
 
 #import "AppDelegate.h"
 #import "BrewersPositionTableViewController.h"
+
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 @implementation AppDelegate
+
+@synthesize managedObjectContext = _managedObjectContext;
+@synthesize managedObjectModel = _managedObjectModel;
+@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -33,10 +39,8 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    UINavigationController* nc = (UINavigationController*)  self.window.rootViewController;
-    BrewersPositionTableViewController *bptvc = [nc.viewControllers objectAtIndex:0];
-    [bptvc saveChanges];
+    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.ß
+    [self saveContext];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -51,7 +55,59 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:. 1.25.27
+}
+
+-(void)saveContext{
+    NSError* error = nil;
+    NSManagedObjectContext* managedObjectContext = self.managedObjectContext;
+    if(managedObjectContext!=nil){
+        if([managedObjectContext hasChanges] && ![managedObjectContext save:&error]){
+            NSLog(@"save context unresolved error %@ %@", error, [error userInfo]);
+            abort();
+        }
+    }
+}
+
+- (NSManagedObjectModel*)managedObjectModel{
+    if(_managedObjectModel != nil){
+        return _managedObjectModel;
+    }
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Brewers" withExtension:@"momd"];
+    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    return _managedObjectModel;
+}
+
+-(NSPersistentStoreCoordinator*)persistentStoreCoordinator{
+    if(_persistentStoreCoordinator != nil){
+        return _persistentStoreCoordinator;
+    }
+    
+    NSURL* storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Brewers.sqlite"];
+    
+    NSError* error = nil;
+    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+    if(![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]){
+        NSLog(@"Unresolved error %@ %@", error, [error userInfo]);
+        abort();
+    }
+    return _persistentStoreCoordinator;
+}
+
+-(NSManagedObjectContext*)managedObjectContext{
+    if(_managedObjectContext != nil){
+        return _managedObjectContext;
+    }
+    NSPersistentStoreCoordinator* coordinator = [self persistentStoreCoordinator];
+    if(coordinator != nil){
+        _managedObjectContext = [[NSManagedObjectContext alloc]init];
+        [_managedObjectContext setPersistentStoreCoordinator:coordinator];
+    }
+    return _managedObjectContext;
+}
+
+-(NSURL*)applicationDocumentsDirectory{
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentationDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
 @end

@@ -24,6 +24,7 @@
 @property(nonatomic, weak) IBOutlet UITextField* urlTextField;
 @property(nonatomic, weak) IBOutlet UITextField* headshotUrlTextField;
 
+@property(nonatomic, strong) NSNumber* isAdd;
 @property(nonatomic, weak) BrewersPlayer* player;
 @property(nonatomic, weak) id<BrewersAddPlayerViewControllerDelegate> delegate;
 

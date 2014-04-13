@@ -1,56 +1,63 @@
 //
 //  BrewersPlayer.m
-//  Brewers
+//  brewers
 //
-//  Created by Ryan Hardt on 3/17/14.
+//  Created by Jake on 4/13/14.
 //  Copyright (c) 2014 Ryan Hardt. All rights reserved.
 //
 
 #import "BrewersPlayer.h"
 
+
 @implementation BrewersPlayer
 
--(id)init
-{
-    return [self initWithFirstName:@"" lastName:@"" position:@""];
-}
+@dynamic firstName;
+@dynamic lastName;
+@dynamic infoUrl;
+@dynamic headshotUrl;
+@dynamic position;
 
--(id)initWithFirstName:(NSString*)firstName lastName:(NSString*)lastName position:(NSString*)position
-{
-    self = [super init];
-    if(self) {
-        _firstName = firstName;
-        _lastName = lastName;
-        _position = position;
-    }
-    return self;
-}
+/*
+ NONE,
+ PITCHER,
+ CATCHER,
+ FIRST_BASE,
+ SECOND_BASE,
+ THIRD_BASE,
+ SHORTSTOP,
+ LEFT_FIELD,
+ CENTER_FIELD,
+ RIGHT_FIELD
+ */
 
--(id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super init];
-    if(self) {
-        _firstName = [aDecoder decodeObjectForKey:@"firstName"];
-        _lastName = [aDecoder decodeObjectForKey:@"lastName"];
-        _position = [aDecoder decodeObjectForKey:@"position"];
-        _infoUrl = [aDecoder decodeObjectForKey:@"url"];
-        _headshotUrl = [aDecoder decodeObjectForKey:@"headshotUrl"];
+-(NSString*)nameForPosition:(Position)position{
+    switch(position){
+        case NONE:
+            return @"None";
+        case PITCHER:
+            return @"Pitcher";
+        case CATCHER:
+            return @"Catcher";
+        case FIRST_BASE:
+            return @"First Base";
+        case SECOND_BASE:
+            return @"Second Base";
+        case THIRD_BASE:
+            return @"Third Base";
+        case SHORTSTOP:
+            return @"Shortstop";
+        case LEFT_FIELD:
+            return @"Left Field";
+        case CENTER_FIELD:
+            return @"Center Field";
+        case RIGHT_FIELD:
+            return @"Right Field";
     }
-    return self;
 }
 
 -(NSString*)fullName
 {
     return [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName];
-}
-
--(void)encodeWithCoder:(NSCoder *)aCoder
-{
-    [aCoder encodeObject:self.firstName forKey:@"firstName"];
-    [aCoder encodeObject:self.lastName forKey:@"lastName"];
-    [aCoder encodeObject:self.position forKey:@"position"];
-    [aCoder encodeObject:self.infoUrl forKey:@"url"];
-    [aCoder encodeObject:self.headshotUrl forKey:@"headshotUrl"];
 }
 
 @end

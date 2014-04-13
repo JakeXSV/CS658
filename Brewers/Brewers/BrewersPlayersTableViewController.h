@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "BrewersAddEditPlayerViewController.h"
+#import "BrewersPlayer.h"
 
 @interface BrewersPlayersTableViewController : UITableViewController
 <BrewersAddPlayerViewControllerDelegate>
 
-@property(nonatomic, weak) NSMutableArray* positionPlayers;
+@property(nonatomic, strong) NSMutableArray* players;
+@property(nonatomic) Position position;
 
 @end
