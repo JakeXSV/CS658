@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>8275F510-B50B-4CA3-A691-E35D4207B66A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ToDo2</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BCBFF683-55E3-40FA-91FC-266FB59AC6A5</key>
+		<string>ssh://github.com/Jakehp/CS658.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ToDo2/ToDo2.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BCBFF683-55E3-40FA-91FC-266FB59AC6A5</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/Jakehp/CS658.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BCBFF683-55E3-40FA-91FC-266FB59AC6A5</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BCBFF683-55E3-40FA-91FC-266FB59AC6A5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CS658</string>
+		</dict>
+	</array>
+</dict>
+</plist>
