@@ -14,7 +14,8 @@
 #import "AppDelegate.h"
 
 @interface ToDoListViewController ()
-
+@property(nonatomic, strong) AppDelegate* appDelegate;
+@property(nonatomic, strong) NSManagedObjectContext* moc;
 @end
 
 @implementation ToDoListViewController
@@ -35,8 +36,6 @@
     // Uncomment the following line to preserve selection between presentations.
     self.clearsSelectionOnViewWillAppear = NO;
     
-    self.toDoList = [[NSMutableArray alloc] init];
-    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
@@ -45,6 +44,10 @@
     UIBarButtonItem* settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStyleBordered target:self action:@selector(showSettings)];
     self.toolbarItems = @[settingsButton];
     self.navigationController.toolbarHidden = NO;
+    
+    self.appDelegate = [[UIApplication sharedApplication]delegate];
+    self.moc = [self.appDelegate managedObjectContext];
+    self.toDoList = [self.appDelegate getToDoList];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -56,10 +59,11 @@
 {
     if([self.deleteOnComplete isEqualToString:@"YES"]) {
         ToDoListItem* item;
-        for(int i=0; i<self.toDoList.count; ++i) {
+        for(int i=0; i<[self.toDoList count]; ++i) {
             item = [self.toDoList objectAtIndex:i];
             if(item.isCompleted) {
-                [self.toDoList removeObject:item];
+                [self.toDoList removeObject:(item)];
+                [self.moc deleteObject:(item)];
                 --i;
             }
         }
@@ -74,12 +78,9 @@
 
 -(IBAction)addToDoListItem
 {
-    AppDelegate* appDelegate = [[UIApplication sharedApplication]delegate];
-    NSManagedObjectContext* moc = [appDelegate managedObjectContext];
-    ToDoListItem* itemToAdd = [NSEntityDescription insertNewObjectForEntityForName:@"ToDoListItem" inManagedObjectContext:moc];
+    ToDoListItem* itemToAdd = [NSEntityDescription insertNewObjectForEntityForName:@"ToDoListItem" inManagedObjectContext:self.moc];
     itemToAdd.title = @"New ToDo Item";
-    [self.toDoList insertObject:itemToAdd atIndex:0];
-    
+    [self.toDoList addObject:itemToAdd];
     // Create an index path for the new item
     NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     
@@ -96,8 +97,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.toDoList.count;
-
+    return [self.toDoList count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -123,6 +123,7 @@
 // In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     //always check to see which segue it is
@@ -149,9 +150,15 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.toDoList removeObjectAtIndex:indexPath.row];
-        // Delete the row from the data source
+
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        NSLog(@"");
+        ToDoListItem* toBeDeletedItem = [self.toDoList objectAtIndex:indexPath.row];
+        NSLog(@"");
+        [self.toDoList removeObject:toBeDeletedItem];
+        NSLog(@"");
+        [self.moc deleteObject:toBeDeletedItem];
+        NSLog(@"");
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

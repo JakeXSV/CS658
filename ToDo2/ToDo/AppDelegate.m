@@ -45,9 +45,6 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    UINavigationController* uinc = (UINavigationController*) self.window.rootViewController;
-    ToDoListViewController* tdlvc = [uinc.viewControllers objectAtIndex:0];
-    tdlvc.toDoList = [self getToDoList];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -73,11 +70,11 @@
         
     NSFetchRequest* fetchReq = [[NSFetchRequest alloc] init];
     NSEntityDescription* entityDesc = [NSEntityDescription entityForName:@"ToDoListItem" inManagedObjectContext:moc];
-    NSSortDescriptor* sortByName = [[NSSortDescriptor alloc] initWithKey:@"dueDate" ascending:YES];
+    //NSSortDescriptor* sortByName = [[NSSortDescriptor alloc] initWithKey:@"dueDate" ascending:YES];
     //NSPredicate* predicate = [NSPredicate predicateWithFormat:@"position == %i", position];
         
     [fetchReq setEntity:entityDesc];
-    [fetchReq setSortDescriptors:@[sortByName]];
+    //[fetchReq setSortDescriptors:@[sortByName]];
     //[fetchReq setPredicate:predicate];
         
     NSError* error = nil;

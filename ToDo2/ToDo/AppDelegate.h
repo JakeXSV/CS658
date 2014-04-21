@@ -16,5 +16,5 @@
 @property(readonly, strong, nonatomic) NSManagedObjectModel* managedObjectModel;
 @property(readonly, strong, nonatomic) NSPersistentStoreCoordinator* persistentStoreCoordinator;
 - (NSManagedObjectModel*)managedObjectModel;
-
+-(NSMutableArray*)getToDoList;
 @end
