@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BrewersAddEditPlayerViewController.h"
 @class BrewersPlayer;
 
 @interface BrewersPlayerDetailViewController : UIViewController

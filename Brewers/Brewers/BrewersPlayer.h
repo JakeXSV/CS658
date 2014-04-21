@@ -2,7 +2,7 @@
 //  BrewersPlayer.h
 //  brewers
 //
-//  Created by Ryan Hardt on 4/2/14.
+//  Created by Jacob Henry Prather on 4/21/14.
 //  Copyright (c) 2014 Ryan Hardt. All rights reserved.
 //
 
@@ -11,7 +11,8 @@
 
 typedef enum{
     NONE,
-    PITCHER,
+    STARTING_PITCHER,
+    RELIEF_PITCHER,
     CATCHER,
     FIRST_BASE,
     SECOND_BASE,
@@ -25,12 +26,13 @@ typedef enum{
 @interface BrewersPlayer : NSManagedObject
 
 @property (nonatomic, retain) NSString * firstName;
+@property (nonatomic, retain) NSData * headshot;
+@property (nonatomic, retain) NSString * infoUrl;
 @property (nonatomic, retain) NSString * lastName;
 @property (nonatomic, retain) NSNumber * position;
-@property (nonatomic, retain) NSString * infoUrl;
-@property (nonatomic, retain) NSString * headshotUrl;
 
 +(NSString*)nameForPosition:(Position)position;
++(NSString*)identifierForPosition:(Position)position;
 -(NSString*)fullName;
 
 @end

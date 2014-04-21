@@ -8,7 +8,6 @@
 
 #import "BrewersPlayerDetailViewController.h"
 #import "BrewersPlayer.h"
-#import "BrewersAddEditPlayerViewController.h"
 #import "BrewersPlayerWebViewController.h"
 
 @interface BrewersPlayerDetailViewController ()
@@ -43,14 +42,7 @@
     } else {
         self.moreInfoButton.enabled = YES;
     }
-    NSURL* url;
-    if(self.player.headshotUrl == nil || [self.player.headshotUrl isEqualToString:@""]) {
-        url = [NSURL URLWithString:@"http://sports.cbsimg.net/images/players/unknown_hat.gif"];
-    } else {
-        url = [NSURL URLWithString:self.player.headshotUrl];
-    }
-    NSData* imageData = [NSData dataWithContentsOfURL:url];
-    UIImage* headshot = [UIImage imageWithData:imageData];
+    UIImage* headshot = [UIImage imageWithData:self.player.headshot];
     self.headshotImageView.image = headshot;
 }
 
@@ -65,11 +57,7 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([segue.identifier isEqualToString:@"editPlayerSegue"]) {
-        BrewersAddEditPlayerViewController* dest = [segue destinationViewController];
-        dest.player = self.player;
-        dest.isAdd = [NSNumber numberWithBool:NO];
-    } else if([segue.identifier isEqualToString:@"moreInfoSegue"]) {
+    if([segue.identifier isEqualToString:@"moreInfoSegue"]) {
         BrewersPlayerWebViewController* dest = [segue destinationViewController];
         dest.url = self.player.infoUrl;
     }

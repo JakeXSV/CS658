@@ -54,7 +54,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 9;
+    return 10;
 }
 
 
@@ -92,9 +92,45 @@
     
     if(!fetchResults) {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    } else if([fetchResults count]==0) {
+        //if no players, obtain players from web service
+        fetchResults = [self getPlayersFromWebServiceForPosition:position withMoc:moc];
     }
     
     return fetchResults;
+}
+
+-(NSMutableArray*)getPlayersFromWebServiceForPosition:(Position)position withMoc:(NSManagedObjectContext*)moc{
+    NSMutableArray* players = [[NSMutableArray alloc]init];
+    
+    //construct string for url
+    NSString* brewersPlayersURLString = @"http://api.cbssports.com/fantasy/players/search?SPORT=baseball&version=3.0&response_format=json&pro_team=MIL";
+    NSString* positionString = [NSString stringWithFormat:@"&position=%@", [BrewersPlayer identifierForPosition:position]];
+    NSString* brewersPlayerURLForPosition = [brewersPlayersURLString stringByAppendingString:(positionString)];
+    
+    NSURL* brewersPlayersByPositionURL = [[NSURL alloc]initWithString:brewersPlayerURLForPosition];
+    NSData* data = [NSData dataWithContentsOfURL:brewersPlayersByPositionURL];
+    
+    //get data
+    NSError* error = nil;
+    NSDictionary* jsonResults = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    NSDictionary* bodyOfResults = [jsonResults objectForKey:@"body"];
+    NSMutableArray* playerResults = [bodyOfResults objectForKey:@"players"];
+    
+    //construct players
+    BrewersPlayer* player;
+    for (NSDictionary* cplayer in playerResults){
+        player = [NSEntityDescription insertNewObjectForEntityForName:@"BrewersPlayer" inManagedObjectContext:moc];
+        player.firstName = [cplayer valueForKeyPath:@"firstname"];
+        player.lastName = [cplayer valueForKeyPath:@"lastname"];
+        player.position = [NSNumber numberWithInt:position];
+        player.infoUrl = [@"http://www.cbssports.com/mlb/players/playerpage/" stringByAppendingString:[cplayer valueForKeyPath:@"id"]];
+        NSURL* hs = [cplayer valueForKeyPath:@"photo_url"];
+        player.headshot = [NSData dataWithContentsOfURL:hs];
+        [players addObject:player];
+    };
+    
+    return players;
 }
 
 @end

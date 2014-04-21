@@ -2,7 +2,7 @@
 //  BrewersPlayer.m
 //  brewers
 //
-//  Created by Ryan Hardt on 4/2/14.
+//  Created by Jacob Henry Prather on 4/21/14.
 //  Copyright (c) 2014 Ryan Hardt. All rights reserved.
 //
 
@@ -12,15 +12,17 @@
 @implementation BrewersPlayer
 
 @dynamic firstName;
+@dynamic headshot;
+@dynamic infoUrl;
 @dynamic lastName;
 @dynamic position;
-@dynamic infoUrl;
-@dynamic headshotUrl;
 
 +(NSString*)nameForPosition:(Position)position
 {
-    if(position == PITCHER) {
-        return @"Pitcher";
+    if(position == STARTING_PITCHER) {
+        return @"Starting Pitcher";
+    } else if(position == RELIEF_PITCHER){
+        return @"Relief Pitcher";
     } else if(position == CATCHER) {
         return @"Catcher";
     } else if(position == FIRST_BASE) {
@@ -39,6 +41,33 @@
         return @"Right Field";
     } else {
         return @"None";
+    }
+}
+
++(NSString*)identifierForPosition:(Position)position
+{
+    if(position == STARTING_PITCHER) {
+        return @"SP";
+    } else if(position == RELIEF_PITCHER){
+        return @"RP";
+    } else if(position == CATCHER) {
+        return @"C";
+    } else if(position == FIRST_BASE) {
+        return @"B";
+    } else if(position == SECOND_BASE) {
+        return @"BB";
+    } else if(position == THIRD_BASE) {
+        return @"BBB";
+    } else if(position == SHORTSTOP) {
+        return @"SS";
+    } else if(position == LEFT_FIELD) {
+        return @"LF";
+    } else if(position == CENTER_FIELD) {
+        return @"CF";
+    } else if(position == RIGHT_FIELD) {
+        return @"RF";
+    } else {
+        return @"NA";
     }
 }
 

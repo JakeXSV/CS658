@@ -9,7 +9,6 @@
 #import "BrewersPlayersTableViewController.h"
 #import "BrewersPlayer.h"
 #import "BrewersPlayerDetailViewController.h"
-#import "BrewersAddEditPlayerViewController.h"
 #import "AppDelegate.h"
 
 @interface BrewersPlayersTableViewController ()
@@ -30,9 +29,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    UIBarButtonItem* addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPlayer)];
-    self.navigationItem.rightBarButtonItems = @[addButton, self.editButtonItem];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -125,49 +121,6 @@
         dest.player = [self.players objectAtIndex:[self.tableView indexPathForSelectedRow].row];
         dest.navigationItem.title = cell.textLabel.text;
     }
-    
-    else if([segue.identifier isEqualToString:@"addPlayerSegue"]) {
-        BrewersAddEditPlayerViewController* dest = [segue destinationViewController];
-        dest.navigationItem.title = @"Add Player";
-        dest.player = self.tempPlayer;
-        dest.delegate = self;
-        dest.isAdd = [NSNumber numberWithBool:YES];
-    }
 }
-
- -(void)addPlayer
- {
-     AppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
-     NSManagedObjectContext* moc = [appDelegate managedObjectContext];
-
-     self.tempPlayer = [NSEntityDescription insertNewObjectForEntityForName:@"BrewersPlayer" inManagedObjectContext:moc];
-     self.tempPlayer.position = [NSNumber numberWithInt:self.position];
- 
-     [self performSegueWithIdentifier:@"addPlayerSegue" sender:self];
- }
- 
- #pragma mark - BrewersAddEditPlayerViewController
- 
- -(void)doneAddPlayer
- {
-     for(int i=0; i<self.players.count; ++i) {
-         BrewersPlayer* player = [self.players objectAtIndex:i];
-         if([player.lastName compare:self.tempPlayer.lastName] == NSOrderedDescending) {
-             [self.players insertObject:self.tempPlayer atIndex:i];
-             return;
-         }
-     }
-     //only called if player should be last in list
-     [self.players addObject:self.tempPlayer];
- }
- 
- -(void)cancelAddPlayer
- {
-     AppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
-     NSManagedObjectContext* moc = [appDelegate managedObjectContext];
-     [moc deleteObject:self.tempPlayer];
-      self.tempPlayer = nil;
- }
-
 
 @end
