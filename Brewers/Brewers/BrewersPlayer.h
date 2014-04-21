@@ -2,7 +2,7 @@
 //  BrewersPlayer.h
 //  brewers
 //
-//  Created by Jake on 4/13/14.
+//  Created by Ryan Hardt on 4/2/14.
 //  Copyright (c) 2014 Ryan Hardt. All rights reserved.
 //
 
@@ -26,10 +26,11 @@ typedef enum{
 
 @property (nonatomic, retain) NSString * firstName;
 @property (nonatomic, retain) NSString * lastName;
+@property (nonatomic, retain) NSNumber * position;
 @property (nonatomic, retain) NSString * infoUrl;
 @property (nonatomic, retain) NSString * headshotUrl;
-@property (nonatomic, retain) NSNumber * position;
+
++(NSString*)nameForPosition:(Position)position;
 -(NSString*)fullName;
--(NSString*)nameForPosition:(Position)position;
 
 @end

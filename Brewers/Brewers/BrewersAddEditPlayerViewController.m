@@ -32,7 +32,7 @@
     // Do any additional setup after loading the view.
     self.firstNameTextField.text = self.player.firstName;
     self.lastNameTextField.text = self.player.lastName;
-    self.positionLabel.text = [[BrewersPlayer alloc] nameForPosition:[self.player.position intValue]];
+    self.positionLabel.text = [BrewersPlayer nameForPosition:[self.player.position intValue]];
     self.urlTextField.text = self.player.infoUrl;
     self.headshotUrlTextField.text = self.player.headshotUrl;
 }
@@ -75,7 +75,7 @@
 
 - (IBAction)cancel:(id)sender
 {
-    if([self.isAdd boolValue]){
+    if([self.isAdd boolValue]) {
         [self.delegate cancelAddPlayer];
     }
     [self.navigationController popViewControllerAnimated:YES];
@@ -83,13 +83,13 @@
 
 - (IBAction)done:(id)sender
 {
-    
     self.player.firstName = self.firstNameTextField.text;
     self.player.lastName = self.lastNameTextField.text;
     self.player.infoUrl = self.urlTextField.text;
     self.player.headshotUrl = self.headshotUrlTextField.text;
-    if([self.isAdd boolValue]){
-      [self.delegate doneAddPlayer];
+    
+    if([self.isAdd boolValue]) {
+        [self.delegate doneAddPlayer];
     }
     [self.navigationController popViewControllerAnimated:YES];
 }

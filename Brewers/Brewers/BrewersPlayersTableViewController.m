@@ -13,9 +13,7 @@
 #import "AppDelegate.h"
 
 @interface BrewersPlayersTableViewController ()
-
 @property(nonatomic, strong) BrewersPlayer* tempPlayer;
-
 @end
 
 @implementation BrewersPlayersTableViewController
@@ -32,11 +30,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     
     UIBarButtonItem* addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPlayer)];
     self.navigationItem.rightBarButtonItems = @[addButton, self.editButtonItem];
@@ -90,14 +83,14 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        BrewersPlayer* player = [self.players objectAtIndex:indexPath.row];
+        AppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
+        NSManagedObjectContext* moc = [appDelegate managedObjectContext];
+        [moc deleteObject:player];
+        
         // Delete the row from the data source
-        BrewersPlayer* playerTBD = [self.players objectAtIndex:indexPath.row];
         [self.players removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        
-        AppDelegate* appDelegate = [[UIApplication sharedApplication]delegate];
-        NSManagedObjectContext* moc = [appDelegate managedObjectContext];
-        [moc deleteObject:playerTBD];
         
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -124,56 +117,56 @@
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
     if([segue.identifier isEqualToString:@"showPlayerDetailSegue"]) {
         BrewersPlayerDetailViewController* dest = [segue destinationViewController];
         UITableViewCell* cell = (UITableViewCell*)sender;
         dest.player = [self.players objectAtIndex:[self.tableView indexPathForSelectedRow].row];
         dest.navigationItem.title = cell.textLabel.text;
     }
+    
     else if([segue.identifier isEqualToString:@"addPlayerSegue"]) {
         BrewersAddEditPlayerViewController* dest = [segue destinationViewController];
         dest.navigationItem.title = @"Add Player";
         dest.player = self.tempPlayer;
-        dest.isAdd = [NSNumber numberWithBool:(YES)];
         dest.delegate = self;
+        dest.isAdd = [NSNumber numberWithBool:YES];
     }
 }
+
  -(void)addPlayer
  {
-     AppDelegate* appDelegate = [[UIApplication sharedApplication]delegate];
+     AppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
      NSManagedObjectContext* moc = [appDelegate managedObjectContext];
+
      self.tempPlayer = [NSEntityDescription insertNewObjectForEntityForName:@"BrewersPlayer" inManagedObjectContext:moc];
      self.tempPlayer.position = [NSNumber numberWithInt:self.position];
  
      [self performSegueWithIdentifier:@"addPlayerSegue" sender:self];
  }
  
- #pragma mark - BrewersAddPlayerViewController
+ #pragma mark - BrewersAddEditPlayerViewController
  
  -(void)doneAddPlayer
  {
-     for(int i=0;i<self.players.count;i++) {
+     for(int i=0; i<self.players.count; ++i) {
          BrewersPlayer* player = [self.players objectAtIndex:i];
-         if([player.lastName compare:self.tempPlayer.lastName] == NSOrderedDescending){
+         if([player.lastName compare:self.tempPlayer.lastName] == NSOrderedDescending) {
              [self.players insertObject:self.tempPlayer atIndex:i];
              return;
          }
      }
-     //only called if player should be last
+     //only called if player should be last in list
      [self.players addObject:self.tempPlayer];
  }
  
  -(void)cancelAddPlayer
  {
-     AppDelegate* appDelegate = [[UIApplication sharedApplication]delegate];
+     AppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
      NSManagedObjectContext* moc = [appDelegate managedObjectContext];
      [moc deleteObject:self.tempPlayer];
-     self.tempPlayer = nil;
+      self.tempPlayer = nil;
  }
 
 

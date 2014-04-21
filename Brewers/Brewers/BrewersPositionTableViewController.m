@@ -7,8 +7,8 @@
 //
 
 #import "BrewersPositionTableViewController.h"
-#import "BrewersPlayer.h"
 #import "BrewersPlayersTableViewController.h"
+#import "BrewersPlayer.h"
 #import "AppDelegate.h"
 
 @interface BrewersPositionTableViewController ()
@@ -29,6 +29,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,38 +65,36 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    
     BrewersPlayersTableViewController* dest = [segue destinationViewController];
-    
-    Position position = [[self.tableView indexPathForSelectedRow] row]+1;
-    dest.position = position;
+    Position position = (Position)[self.tableView indexPathForSelectedRow].row+1;
     dest.players = [self playersForPosition:position];
-    dest.navigationItem.title = [[BrewersPlayer alloc] nameForPosition:(position)];
-    
+    dest.position = position;
+    dest.navigationItem.title = [BrewersPlayer nameForPosition:position];
 }
 
--(NSMutableArray*)playersForPosition:(Position)position{
+-(NSMutableArray*)playersForPosition:(Position)position
+{
     AppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext* moc = [appDelegate managedObjectContext];
     
-    NSFetchRequest* fetchReq = [[NSFetchRequest alloc] init];
-    NSEntityDescription* entityDesc = [NSEntityDescription entityForName:@"BrewersPlayer" inManagedObjectContext:moc];
-    NSSortDescriptor* sortByName = [[NSSortDescriptor alloc] initWithKey:@"lastName" ascending:YES];
-    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"position == %i", position];
+    NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"BrewersPlayer" inManagedObjectContext:moc];
+    [fetchRequest setEntity:entity];
     
-    [fetchReq setEntity:entityDesc];
-    [fetchReq setSortDescriptors:@[sortByName]];
-    [fetchReq setPredicate:predicate];
+    NSSortDescriptor* sortByName = [[NSSortDescriptor alloc] initWithKey:@"lastName" ascending:YES];
+    [fetchRequest setSortDescriptors:@[sortByName]];
+    
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"position = %i", position];
+    [fetchRequest setPredicate:predicate];
     
     NSError* error = nil;
-    NSArray* fetchedResults = [moc executeFetchRequest:fetchReq error:&error];
-    NSMutableArray* results = [NSMutableArray arrayWithArray:fetchedResults];
+    NSMutableArray* fetchResults = [NSMutableArray arrayWithArray:[moc executeFetchRequest:fetchRequest error:&error]];
     
-    if(!results){
-        NSLog(@"Unresolved error %@ %@", error, [error userInfo]);
+    if(!fetchResults) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
     }
     
-    return results;
+    return fetchResults;
 }
 
 @end

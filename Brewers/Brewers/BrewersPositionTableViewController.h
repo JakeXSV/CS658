@@ -10,5 +10,4 @@
 
 @interface BrewersPositionTableViewController : UITableViewController
 
-
 @end

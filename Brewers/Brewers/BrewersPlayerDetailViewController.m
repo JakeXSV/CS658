@@ -37,7 +37,7 @@
     self.navigationItem.title = [self.player fullName];
     self.firstNameLabel.text = self.player.firstName;
     self.lastNameLabel.text = self.player.lastName;
-    self.positionLabel.text = [[BrewersPlayer alloc] nameForPosition:[self.player.position intValue]];
+    self.positionLabel.text = [BrewersPlayer nameForPosition:[self.player.position intValue]];
     if(self.player.infoUrl == nil || [self.player.infoUrl isEqualToString:@""]) {
         self.moreInfoButton.enabled = NO;
     } else {
@@ -68,7 +68,7 @@
     if([segue.identifier isEqualToString:@"editPlayerSegue"]) {
         BrewersAddEditPlayerViewController* dest = [segue destinationViewController];
         dest.player = self.player;
-        dest.isAdd = [NSNumber numberWithBool:(NO)];
+        dest.isAdd = [NSNumber numberWithBool:NO];
     } else if([segue.identifier isEqualToString:@"moreInfoSegue"]) {
         BrewersPlayerWebViewController* dest = [segue destinationViewController];
         dest.url = self.player.infoUrl;

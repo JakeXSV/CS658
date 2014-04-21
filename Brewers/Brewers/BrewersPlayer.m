@@ -2,7 +2,7 @@
 //  BrewersPlayer.m
 //  brewers
 //
-//  Created by Jake on 4/13/14.
+//  Created by Ryan Hardt on 4/2/14.
 //  Copyright (c) 2014 Ryan Hardt. All rights reserved.
 //
 
@@ -13,45 +13,32 @@
 
 @dynamic firstName;
 @dynamic lastName;
+@dynamic position;
 @dynamic infoUrl;
 @dynamic headshotUrl;
-@dynamic position;
 
-/*
- NONE,
- PITCHER,
- CATCHER,
- FIRST_BASE,
- SECOND_BASE,
- THIRD_BASE,
- SHORTSTOP,
- LEFT_FIELD,
- CENTER_FIELD,
- RIGHT_FIELD
- */
-
--(NSString*)nameForPosition:(Position)position{
-    switch(position){
-        case NONE:
-            return @"None";
-        case PITCHER:
-            return @"Pitcher";
-        case CATCHER:
-            return @"Catcher";
-        case FIRST_BASE:
-            return @"First Base";
-        case SECOND_BASE:
-            return @"Second Base";
-        case THIRD_BASE:
-            return @"Third Base";
-        case SHORTSTOP:
-            return @"Shortstop";
-        case LEFT_FIELD:
-            return @"Left Field";
-        case CENTER_FIELD:
-            return @"Center Field";
-        case RIGHT_FIELD:
-            return @"Right Field";
++(NSString*)nameForPosition:(Position)position
+{
+    if(position == PITCHER) {
+        return @"Pitcher";
+    } else if(position == CATCHER) {
+        return @"Catcher";
+    } else if(position == FIRST_BASE) {
+        return @"First Base";
+    } else if(position == SECOND_BASE) {
+        return @"Second Base";
+    } else if(position == THIRD_BASE) {
+        return @"Third Base";
+    } else if(position == SHORTSTOP) {
+        return @"Shortstop";
+    } else if(position == LEFT_FIELD) {
+        return @"Left Field";
+    } else if(position == CENTER_FIELD) {
+        return @"Center Field";
+    } else if(position == RIGHT_FIELD) {
+        return @"Right Field";
+    } else {
+        return @"None";
     }
 }
 
