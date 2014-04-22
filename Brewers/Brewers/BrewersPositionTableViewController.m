@@ -101,15 +101,19 @@
 }
 
 -(NSMutableArray*)getPlayersFromWebServiceForPosition:(Position)position withMoc:(NSManagedObjectContext*)moc{
+    
     NSMutableArray* players = [[NSMutableArray alloc]init];
     
     //construct string for url
-    NSString* brewersPlayersURLString = @"http://api.cbssports.com/fantasy/players/search?SPORT=baseball&version=3.0&response_format=json&pro_team=MIL";
-    NSString* positionString = [NSString stringWithFormat:@"&position=%@", [BrewersPlayer identifierForPosition:position]];
-    NSString* brewersPlayerURLForPosition = [brewersPlayersURLString stringByAppendingString:(positionString)];
+    NSString* api = @"http://api.cbssports.com/fantasy/players/search?SPORT=baseball&version=3.0&response_format=json&pro_team=MIL";
     
-    NSURL* brewersPlayersByPositionURL = [[NSURL alloc]initWithString:brewersPlayerURLForPosition];
-    NSData* data = [NSData dataWithContentsOfURL:brewersPlayersByPositionURL];
+    NSString* positionParameter = [NSString stringWithFormat:@"&position=%@", [BrewersPlayer identifierForPosition:position]];
+    
+    NSString* formattedString = [api stringByAppendingString:(positionParameter)];
+    
+    NSURL* apiWithParameters = [NSURL URLWithString:formattedString];
+    NSLog(@"%@",formattedString);
+    NSData* data = [NSData dataWithContentsOfURL:apiWithParameters];
     
     //get data
     NSError* error = nil;
@@ -121,11 +125,11 @@
     BrewersPlayer* player;
     for (NSDictionary* cplayer in playerResults){
         player = [NSEntityDescription insertNewObjectForEntityForName:@"BrewersPlayer" inManagedObjectContext:moc];
-        player.firstName = [cplayer valueForKeyPath:@"firstname"];
-        player.lastName = [cplayer valueForKeyPath:@"lastname"];
+        player.firstName = [cplayer valueForKey:@"firstname"];
+        player.lastName = [cplayer valueForKey:@"lastname"];
         player.position = [NSNumber numberWithInt:position];
-        player.infoUrl = [@"http://www.cbssports.com/mlb/players/playerpage/" stringByAppendingString:[cplayer valueForKeyPath:@"id"]];
-        NSURL* hs = [cplayer valueForKeyPath:@"photo_url"];
+        player.infoUrl = [@"http://www.cbssports.com/mlb/players/playerpage/" stringByAppendingString:[cplayer valueForKey:@"id"]];
+        NSURL* hs = [[NSURL alloc] initWithString:[cplayer valueForKey:@"photo_url"]];
         player.headshot = [NSData dataWithContentsOfURL:hs];
         [players addObject:player];
     };
