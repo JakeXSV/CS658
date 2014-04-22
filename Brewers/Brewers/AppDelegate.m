@@ -24,7 +24,10 @@
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x000080)];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
-
+    
+    NSDictionary* myDefaults = @{offlindeModeConfig: @"NO"};
+    [[NSUserDefaults standardUserDefaults] registerDefaults:myDefaults];
+    
     return YES;
 }
 							

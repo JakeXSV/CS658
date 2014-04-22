@@ -29,18 +29,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIBarButtonItem* settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStyleBordered target:self action:@selector(showSettings)];
+    self.toolbarItems = @[settingsButton];
+    self.navigationController.toolbarHidden = NO;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)showSettings
+{
+    [self performSegueWithIdentifier:@"showSettings" sender:self];
 }
 
 #pragma mark - Table view data source
@@ -63,13 +65,15 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    BrewersPlayersTableViewController* dest = [segue destinationViewController];
-    Position position = (Position)[self.tableView indexPathForSelectedRow].row+1;
-    dest.players = [self playersForPosition:position];
-    dest.position = position;
-    dest.navigationItem.title = [BrewersPlayer nameForPosition:position];
+    if([segue.identifier isEqualToString:@"showSettings"]){
+        NSLog(@"Here we go");
+    }else{
+        BrewersPlayersTableViewController* dest = [segue destinationViewController];
+        Position position = (Position)[self.tableView indexPathForSelectedRow].row+1;
+        dest.players = [self playersForPosition:position];
+        dest.position = position;
+        dest.navigationItem.title = [BrewersPlayer nameForPosition:position];
+    }
 }
 
 -(NSMutableArray*)playersForPosition:(Position)position

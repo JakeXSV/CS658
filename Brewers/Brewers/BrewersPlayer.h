@@ -2,7 +2,7 @@
 //  BrewersPlayer.h
 //  brewers
 //
-//  Created by Jacob Henry Prather on 4/21/14.
+//  Created by Jake on 4/21/14.
 //  Copyright (c) 2014 Ryan Hardt. All rights reserved.
 //
 
