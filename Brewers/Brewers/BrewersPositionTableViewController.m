@@ -10,6 +10,7 @@
 #import "BrewersPlayersTableViewController.h"
 #import "BrewersPlayer.h"
 #import "AppDelegate.h"
+#import "BrewersSettingsTableViewController.h"
 
 @interface BrewersPositionTableViewController ()
 
@@ -29,6 +30,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
     UIBarButtonItem* settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStyleBordered target:self action:@selector(showSettings)];
     self.toolbarItems = @[settingsButton];
     self.navigationController.toolbarHidden = NO;
@@ -42,7 +50,33 @@
 
 -(void)showSettings
 {
-    [self performSegueWithIdentifier:@"showSettings" sender:self];
+    [self performSegueWithIdentifier:@"showSettingsSegue" sender:self];
+}
+
+-(void)retrieveAllPlayerData
+{
+    //execute in separate thread
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        AppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
+        NSManagedObjectContext* moc = [appDelegate managedObjectContext];
+    
+        //clear all player data
+        NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
+        NSEntityDescription* entity = [NSEntityDescription entityForName:@"BrewersPlayer" inManagedObjectContext:moc];
+        [fetchRequest setEntity:entity];
+        
+        NSError* error = nil;
+        NSArray* fetchResults = [moc executeFetchRequest:fetchRequest error:&error];
+        
+        for(BrewersPlayer* player in fetchResults) {
+            [moc deleteObject:player];
+        }
+
+        //replace all player data
+        for(int i=STARTING_PITCHER; i<=RIGHT_FIELD; ++i) {
+            [self playersFromWebServiceForPosition:i withMoc:moc];
+        }
+    });
 }
 
 #pragma mark - Table view data source
@@ -65,19 +99,25 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([segue.identifier isEqualToString:@"showSettings"]){
-        NSLog(@"Here we go");
-    }else{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    
+    if([segue.identifier isEqualToString:@"showSettingsSegue"]) {
+        BrewersSettingsTableViewController* dest = [segue destinationViewController];
+        dest.delegate = self;
+    } else {
         BrewersPlayersTableViewController* dest = [segue destinationViewController];
         Position position = (Position)[self.tableView indexPathForSelectedRow].row+1;
-        dest.players = [self playersForPosition:position];
         dest.position = position;
+        dest.players = [self playersForPosition:position];
         dest.navigationItem.title = [BrewersPlayer nameForPosition:position];
     }
 }
 
 -(NSMutableArray*)playersForPosition:(Position)position
 {
+    BOOL isOfflineModeEnabled = [[NSUserDefaults standardUserDefaults] boolForKey:isOfflineModeEnabledKey];
+    
     AppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext* moc = [appDelegate managedObjectContext];
     
@@ -88,7 +128,7 @@
     NSSortDescriptor* sortByName = [[NSSortDescriptor alloc] initWithKey:@"lastName" ascending:YES];
     [fetchRequest setSortDescriptors:@[sortByName]];
     
-    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"position = %i", position];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"position == %i", position];
     [fetchRequest setPredicate:predicate];
     
     NSError* error = nil;
@@ -96,48 +136,45 @@
     
     if(!fetchResults) {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-    } else if([fetchResults count]==0) {
-        //if no players, obtain players from web service
-        fetchResults = [self getPlayersFromWebServiceForPosition:position withMoc:moc];
+    }
+    else if([fetchResults count] == 0 && !isOfflineModeEnabled) {
+        fetchResults = [self playersFromWebServiceForPosition:position withMoc:moc];
     }
     
     return fetchResults;
 }
 
--(NSMutableArray*)getPlayersFromWebServiceForPosition:(Position)position withMoc:(NSManagedObjectContext*)moc{
+
+-(NSMutableArray*)playersFromWebServiceForPosition:(Position)position withMoc:(NSManagedObjectContext*)moc
+{
+    NSString* brewersPlayersURLString = @"http://api.cbssports.com/fantasy/players/search?SPORT=baseball&version=3.0&response_format=json&pro_team=MIL";
     
-    NSMutableArray* players = [[NSMutableArray alloc]init];
-    
-    //construct string for url
-    NSString* api = @"http://api.cbssports.com/fantasy/players/search?SPORT=baseball&version=3.0&response_format=json&pro_team=MIL";
-    
-    NSString* positionParameter = [NSString stringWithFormat:@"&position=%@", [BrewersPlayer identifierForPosition:position]];
-    
-    NSString* formattedString = [api stringByAppendingString:(positionParameter)];
-    
-    NSURL* apiWithParameters = [NSURL URLWithString:formattedString];
-    NSLog(@"%@",formattedString);
-    NSData* data = [NSData dataWithContentsOfURL:apiWithParameters];
-    
-    //get data
+    NSString* brewersPlayersByPositionURLString =[brewersPlayersURLString stringByAppendingFormat:@"&position=%@",[BrewersPlayer identifierForPosition:position]];
+        
+    NSURL* brewersPlayersByPositionURL = [NSURL URLWithString:brewersPlayersByPositionURLString];
+    NSData* data = [NSData dataWithContentsOfURL:brewersPlayersByPositionURL];
+        
+    //Make a dictionary out of what just came back
     NSError* error = nil;
-    NSDictionary* jsonResults = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-    NSDictionary* bodyOfResults = [jsonResults objectForKey:@"body"];
-    NSMutableArray* playerResults = [bodyOfResults objectForKey:@"players"];
+    NSDictionary* jsonResponse = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    NSDictionary* bodyDictionary = [jsonResponse objectForKey:@"body"];
+    NSArray* playerDictionaries = [bodyDictionary objectForKey:@"players"];
     
-    //construct players
     BrewersPlayer* player;
-    for (NSDictionary* cplayer in playerResults){
+    NSMutableArray* players = [[NSMutableArray alloc] init];
+    for(NSDictionary* playerDictionary in playerDictionaries) {
+
         player = [NSEntityDescription insertNewObjectForEntityForName:@"BrewersPlayer" inManagedObjectContext:moc];
-        player.firstName = [cplayer valueForKey:@"firstname"];
-        player.lastName = [cplayer valueForKey:@"lastname"];
+        
+        player.firstName = [playerDictionary valueForKey:@"firstname"];
+        player.lastName = [playerDictionary valueForKey:@"lastname"];
         player.position = [NSNumber numberWithInt:position];
-        player.infoUrl = [@"http://www.cbssports.com/mlb/players/playerpage/" stringByAppendingString:[cplayer valueForKey:@"id"]];
-        NSURL* hs = [[NSURL alloc] initWithString:[cplayer valueForKey:@"photo_url"]];
-        player.headshot = [NSData dataWithContentsOfURL:hs];
+        player.infoUrl = [@"http://www.cbssports.com/mlb/players/playerpage/" stringByAppendingString:[playerDictionary valueForKey:@"id"]];
+        NSURL* headshotUrl = [NSURL URLWithString:[playerDictionary valueForKey:@"photo_url"]];
+        player.headshot = [NSData dataWithContentsOfURL:headshotUrl];
+            
         [players addObject:player];
-    };
-    
+    }
     return players;
 }
 

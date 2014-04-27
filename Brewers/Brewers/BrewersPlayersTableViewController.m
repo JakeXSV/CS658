@@ -12,7 +12,10 @@
 #import "AppDelegate.h"
 
 @interface BrewersPlayersTableViewController ()
+
 @property(nonatomic, strong) BrewersPlayer* tempPlayer;
+@property(nonatomic, strong) NSDictionary* playersJSON;
+
 @end
 
 @implementation BrewersPlayersTableViewController
@@ -29,6 +32,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -80,13 +86,13 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         BrewersPlayer* player = [self.players objectAtIndex:indexPath.row];
-        AppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
-        NSManagedObjectContext* moc = [appDelegate managedObjectContext];
-        [moc deleteObject:player];
-        
         // Delete the row from the data source
         [self.players removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        AppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
+        NSManagedObjectContext* moc = [appDelegate managedObjectContext];
+        [moc deleteObject:player];
         
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -113,8 +119,11 @@
 
 #pragma mark - Navigation
 
+// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
     if([segue.identifier isEqualToString:@"showPlayerDetailSegue"]) {
         BrewersPlayerDetailViewController* dest = [segue destinationViewController];
         UITableViewCell* cell = (UITableViewCell*)sender;

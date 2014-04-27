@@ -9,6 +9,7 @@
 #import "BrewersPlayerDetailViewController.h"
 #import "BrewersPlayer.h"
 #import "BrewersPlayerWebViewController.h"
+#import "BrewersSettingsTableViewController.h"
 
 @interface BrewersPlayerDetailViewController ()
 
@@ -37,12 +38,20 @@
     self.firstNameLabel.text = self.player.firstName;
     self.lastNameLabel.text = self.player.lastName;
     self.positionLabel.text = [BrewersPlayer nameForPosition:[self.player.position intValue]];
-    if(self.player.infoUrl == nil || [self.player.infoUrl isEqualToString:@""]) {
+    
+    BOOL isOfflineModeEnabled = [[NSUserDefaults standardUserDefaults] boolForKey:isOfflineModeEnabledKey];
+    if(self.player.infoUrl == nil || [self.player.infoUrl isEqualToString:@""] || isOfflineModeEnabled) {
         self.moreInfoButton.enabled = NO;
     } else {
         self.moreInfoButton.enabled = YES;
     }
-    UIImage* headshot = [UIImage imageWithData:self.player.headshot];
+    NSData* imageData;
+    if(self.player.headshot == nil) {
+        imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://sports.cbsimg.net/images/players/unknown_hat.gif"]];
+    } else {
+        imageData = self.player.headshot;
+    }
+    UIImage* headshot = [UIImage imageWithData:imageData];
     self.headshotImageView.image = headshot;
 }
 

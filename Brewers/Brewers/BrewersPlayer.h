@@ -2,14 +2,14 @@
 //  BrewersPlayer.h
 //  brewers
 //
-//  Created by Jake on 4/21/14.
+//  Created by Ryan Hardt on 4/10/14.
 //  Copyright (c) 2014 Ryan Hardt. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-typedef enum{
+typedef enum {
     NONE,
     STARTING_PITCHER,
     RELIEF_PITCHER,

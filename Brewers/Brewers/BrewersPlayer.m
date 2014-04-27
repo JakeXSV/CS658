@@ -2,7 +2,7 @@
 //  BrewersPlayer.m
 //  brewers
 //
-//  Created by Jake on 4/21/14.
+//  Created by Ryan Hardt on 4/10/14.
 //  Copyright (c) 2014 Ryan Hardt. All rights reserved.
 //
 
@@ -21,7 +21,7 @@
 {
     if(position == STARTING_PITCHER) {
         return @"Starting Pitcher";
-    } else if(position == RELIEF_PITCHER){
+    } else if(position == RELIEF_PITCHER) {
         return @"Relief Pitcher";
     } else if(position == CATCHER) {
         return @"Catcher";
@@ -48,16 +48,16 @@
 {
     if(position == STARTING_PITCHER) {
         return @"SP";
-    } else if(position == RELIEF_PITCHER){
+    } else if(position == RELIEF_PITCHER) {
         return @"RP";
     } else if(position == CATCHER) {
         return @"C";
     } else if(position == FIRST_BASE) {
-        return @"B";
+        return @"1B";
     } else if(position == SECOND_BASE) {
-        return @"BB";
+        return @"2B";
     } else if(position == THIRD_BASE) {
-        return @"BBB";
+        return @"3B";
     } else if(position == SHORTSTOP) {
         return @"SS";
     } else if(position == LEFT_FIELD) {

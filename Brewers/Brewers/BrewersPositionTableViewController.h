@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BrewersSettingsTableViewController.h"
 
-@interface BrewersPositionTableViewController : UITableViewController
+@interface BrewersPositionTableViewController : UITableViewController<BrewersSettingsDelegate>
+
+-(void)retrieveAllPlayerData;
 
 @end
