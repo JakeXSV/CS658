@@ -2,20 +2,21 @@
 //  BrewersPlayer.m
 //  brewers
 //
-//  Created by Ryan Hardt on 4/10/14.
+//  Created by Jake on 4/27/14.
 //  Copyright (c) 2014 Ryan Hardt. All rights reserved.
 //
 
 #import "BrewersPlayer.h"
+#import "BrewersHeadshot.h"
 
 
 @implementation BrewersPlayer
 
 @dynamic firstName;
-@dynamic headshot;
-@dynamic infoUrl;
 @dynamic lastName;
 @dynamic position;
+@dynamic playerId;
+@dynamic headshot;
 
 +(NSString*)nameForPosition:(Position)position
 {

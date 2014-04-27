@@ -11,6 +11,6 @@
 @interface BrewersPlayerWebViewController : UIViewController
 
 @property(nonatomic, weak) IBOutlet UIWebView* webView;
-@property(nonatomic, weak) NSString* url;
+@property(nonatomic, strong) NSString* url;
 
 @end

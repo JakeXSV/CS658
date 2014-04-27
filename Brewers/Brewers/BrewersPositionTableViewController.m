@@ -9,11 +9,12 @@
 #import "BrewersPositionTableViewController.h"
 #import "BrewersPlayersTableViewController.h"
 #import "BrewersPlayer.h"
+#import "BrewersHeadshot.h"
 #import "AppDelegate.h"
 #import "BrewersSettingsTableViewController.h"
 
 @interface BrewersPositionTableViewController ()
-
+@property(nonatomic, strong) BrewersHeadshot* genericHeadshot;
 @end
 
 @implementation BrewersPositionTableViewController
@@ -166,16 +167,56 @@
 
         player = [NSEntityDescription insertNewObjectForEntityForName:@"BrewersPlayer" inManagedObjectContext:moc];
         
+        player.playerId = [playerDictionary valueForKey:@"id"];
         player.firstName = [playerDictionary valueForKey:@"firstname"];
         player.lastName = [playerDictionary valueForKey:@"lastname"];
         player.position = [NSNumber numberWithInt:position];
-        player.infoUrl = [@"http://www.cbssports.com/mlb/players/playerpage/" stringByAppendingString:[playerDictionary valueForKey:@"id"]];
-        NSURL* headshotUrl = [NSURL URLWithString:[playerDictionary valueForKey:@"photo_url"]];
-        player.headshot = [NSData dataWithContentsOfURL:headshotUrl];
-            
+        NSString* headshotUrl = [playerDictionary valueForKey:@"photo_url"];
+        
+        if([headshotUrl isEqualToString:(genericHeadshotUrl)]){
+            player.headshot = self.genericHeadshot;
+        }else{
+            player.headshot = [self createHeadshotWithUrl:headshotUrl inManagedObjectContext:moc];
+        }
+        
         [players addObject:player];
     }
     return players;
+}
+
+-(BrewersHeadshot*)genericHeadshot{
+    if(_genericHeadshot){
+        return _genericHeadshot;
+    }
+    
+    AppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext* moc = [appDelegate managedObjectContext];
+    
+    NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"BrewersHeadshot" inManagedObjectContext:moc];
+    [fetchRequest setEntity:entity];
+    
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"url == %@", genericHeadshotUrl];
+    [fetchRequest setPredicate:predicate];
+    
+    NSError* error = nil;
+    NSArray* fetchResults = [moc executeFetchRequest:fetchRequest error:&error];
+    
+    if(!fetchResults) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    }else if([fetchResults count] == 0){
+        _genericHeadshot = [self createHeadshotWithUrl:genericHeadshotUrl inManagedObjectContext:moc];
+    }else{
+        _genericHeadshot = [fetchResults lastObject];
+    }
+    return _genericHeadshot;
+}
+
+-(BrewersHeadshot*)createHeadshotWithUrl:(NSString*)url inManagedObjectContext:(NSManagedObjectContext*)moc{
+    BrewersHeadshot* headshot = [NSEntityDescription insertNewObjectForEntityForName:@"BrewersHeadshot" inManagedObjectContext:moc];
+    headshot.url = url;
+    headshot.data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
+    return headshot;
 }
 
 @end
